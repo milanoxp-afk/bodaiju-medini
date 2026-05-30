@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   BODAIJU RESIDENCES — DESIGN SYSTEM
+   Direction: quiet luxury. Charcoal + warm gold + sage. Generous whitespace.
+   Research: gold/black/white palettes read ~30% higher value; calm, not loud.
+   ========================================================================== */
+
+@theme {
+  /* ---- Brand palette ---- */
+  --color-ink: #14141c; /* deep charcoal — primary text / dark sections */
+  --color-ink-soft: #2a2a36;
+  --color-gold: #c9a84c; /* warm gold — accent, CTAs, dividers */
+  --color-gold-deep: #a8862f;
+  --color-gold-soft: #e7d6a3;
+  --color-sage: #7c9070; /* muted sage — nature / Bodhi references */
+  --color-sage-deep: #5c6e52;
+  --color-cream: #faf8f3; /* warm off-white background */
+  --color-cream-deep: #f1ece1;
+  --color-paper: #ffffff;
+  --color-line: #e4ddcd; /* hairline borders on cream */
+  --color-muted: #6b6b73; /* secondary text */
+
+  /* ---- Typography ---- */
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* ---- Type scale (fluid) ---- */
+  --text-display: clamp(2.75rem, 6vw, 5rem);
+  --text-h1: clamp(2.25rem, 4.5vw, 3.5rem);
+  --text-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --text-h3: clamp(1.35rem, 2vw, 1.75rem);
+
+  /* ---- Easing & timing ---- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ---- Radius ---- */
+  --radius-card: 0.75rem;
+}
+
+/* ---- Base ---- */
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "kern", "liga";
+}
+
+/* Headings default to serif */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+}
+
+/* Tighter, more elegant serif headings */
+.heading-tight {
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* Eyebrow / kicker label */
+.eyebrow {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-gold-deep);
+}
+
+/* ---- Reveal-on-scroll primitive (used by <Reveal/>) ---- */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: reveal-up 0.8s var(--ease-out-soft) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---- Focus visibility (accessibility) ---- */
+*:focus-visible {
+  outline: 2px solid var(--color-gold-deep);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-ink);
+}
+
+/* ---- Utility: subtle paper grain on dark sections (optional) ---- */
+.section-dark {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+.section-dark .eyebrow { color: var(--color-gold-soft); }
+
+/* ---- Thin gold rule ---- */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+}
