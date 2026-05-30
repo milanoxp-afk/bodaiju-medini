@@ -3,8 +3,8 @@ import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { WhatsAppButton } from "../components/WhatsAppButton";
 import { Analytics } from "../components/Analytics";
+import { CrispChat } from "../components/CrispChat";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -70,8 +70,8 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-        <WhatsAppButton />
         <Analytics />
+        <CrispChat />
       </body>
     </html>
   );
