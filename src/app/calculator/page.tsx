@@ -15,7 +15,7 @@ export default function CalculatorPage() {
     <>
       <section className="section-dark pt-32 pb-16">
         <Container>
-          <Reveal>
+          <Reveal immediate>
             <p className="eyebrow">The honest numbers</p>
             <h1 className="heading-tight mt-4 max-w-3xl font-serif text-[var(--text-h1)] font-semibold">
               What a Bodaiju home really costs you

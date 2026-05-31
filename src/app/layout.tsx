@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Fraunces, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Analytics } from "../components/Analytics";
 import { CrispChat } from "../components/CrispChat";
+import { StickyCTA } from "../components/StickyCTA";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -15,6 +16,12 @@ const fraunces = Fraunces({
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-mono-geist",
   subsets: ["latin"],
   display: "swap",
 });
@@ -66,10 +73,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${fraunces.variable} ${inter.variable} antialiased`}>
+      <body className={`${fraunces.variable} ${inter.variable} ${geistMono.variable} antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />
+        <StickyCTA />
         <Analytics />
         <CrispChat />
       </body>

@@ -17,7 +17,7 @@ export default function UnitsPage() {
     <>
       <section className="section-dark pt-32 pb-16">
         <Container>
-          <Reveal>
+          <Reveal immediate>
             <p className="eyebrow">The residences</p>
             <h1 className="heading-tight mt-4 max-w-3xl font-serif text-[var(--text-h1)] font-semibold">
               Four ways to live at Bodaiju

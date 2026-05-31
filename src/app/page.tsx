@@ -38,7 +38,7 @@ export default function Home() {
           <BodhiMotif className="h-[42rem] w-auto" />
         </div>
         <Container className="relative flex min-h-[92vh] flex-col justify-center pt-28 pb-16">
-          <Reveal>
+          <Reveal immediate>
             <p className="eyebrow">Medini · Iskandar Puteri · Johor</p>
             <h1 className="heading-tight mt-5 max-w-3xl font-serif text-[var(--text-display)] font-semibold">
               A quiet place to come home to.
@@ -49,7 +49,7 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <Reveal delay={120}>
+          <Reveal immediate>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Button href="/calculator" variant="gold" size="lg">
                 Calculate your true cost →
@@ -159,7 +159,7 @@ export default function Home() {
                     <p className="mt-1 text-sm text-[var(--color-muted)]">60% ABSD — tax only, no property</p>
                   </div>
                   <div className="bg-[var(--color-cream)] p-7">
-                    <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)]">Bodaiju · Type A</p>
+                    <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-text)]">Bodaiju · Type A</p>
                     <p className="mt-3 font-serif text-3xl font-semibold text-[var(--color-ink)]">{rm(typeA.priceRm)}</p>
                     <p className="mt-1 text-sm text-[var(--color-muted)]">{num(typeA.sqft)} sq ft · 1 bed · yours</p>
                   </div>

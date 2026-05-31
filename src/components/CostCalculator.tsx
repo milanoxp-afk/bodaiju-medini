@@ -46,6 +46,11 @@ export function CostCalculator() {
   const c = computeCosts(price, buyer);
   const absdEquivalent = price * singaporeAbsd.foreignerRate;
 
+  // Transaction costs = everything EXCEPT the down payment (which is equity you
+  // keep, not a cost). This is the honest "extra on top of price" figure.
+  const txnCosts = c.totalUpfront - c.downPayment;
+  const txnPct = Math.round((txnCosts / price) * 100);
+
   const lines = [
     { label: "Down payment", note: isForeign ? "30% (foreign LTV ~70%)" : "10% (citizen LTV ~90%)", value: c.downPayment },
     { label: isForeign ? "Stamp duty (MOT) — 8% foreigner rate" : "Stamp duty (MOT) — tiered", note: "From 1 Jan 2026", value: c.motStampDuty },
@@ -113,7 +118,7 @@ export function CostCalculator() {
         <fieldset>
           <div className="mb-3 flex items-baseline justify-between">
             <legend className="eyebrow">Unit price</legend>
-            <span className="font-serif text-lg font-semibold text-[var(--color-ink)]">{rm(price)}</span>
+            <span className="figure text-lg font-semibold text-[var(--color-ink)]">{rm(price)}</span>
           </div>
           <input
             type="range"
@@ -145,7 +150,7 @@ export function CostCalculator() {
                 <span className="block text-sm text-[var(--color-ink)]">{l.label}</span>
                 <span className="block text-xs text-[var(--color-muted)]">{l.note}</span>
               </span>
-              <span className="whitespace-nowrap text-right text-sm font-medium text-[var(--color-ink)]">{rm(l.value)}</span>
+              <span className="figure whitespace-nowrap text-right text-sm font-medium text-[var(--color-ink)]">{rm(l.value)}</span>
             </li>
           ))}
         </ul>
@@ -153,15 +158,18 @@ export function CostCalculator() {
         {/* Total upfront */}
         <div className="mt-2 rounded-xl bg-[var(--color-ink)] p-5 text-[var(--color-cream)]">
           <div className="flex items-baseline justify-between">
-            <span className="text-sm uppercase tracking-[0.15em] text-[var(--color-gold-soft)]">Total upfront</span>
-            <span className="text-xs text-[var(--color-cream)]/60">≈ {Math.round(c.totalUpfrontPct * 100)}% over price</span>
+            <span className="text-sm uppercase tracking-[0.15em] text-[var(--color-gold-soft)]">Total cash needed upfront</span>
           </div>
           <div className="mt-1 flex flex-wrap items-baseline gap-x-3">
-            <span className="font-serif text-3xl font-semibold">{rm(c.totalUpfront)}</span>
-            <span className="text-[var(--color-cream)]/70">{sgd(c.totalUpfront / fx.myrPerSgd)}</span>
+            <span className="figure text-3xl font-semibold">{rm(c.totalUpfront)}</span>
+            <span className="figure text-[var(--color-cream)]/70">{sgd(c.totalUpfront / fx.myrPerSgd)}</span>
           </div>
+          <p className="mt-2 text-xs leading-relaxed text-[var(--color-cream)]/55">
+            Includes your {isForeign ? "30%" : "10%"} down payment (equity you keep) plus
+            ~{txnPct}% transaction costs (stamp duty,{isForeign ? " state consent," : ""} legal fees).
+          </p>
           <div className="mt-3 border-t border-white/10 pt-3 text-sm text-[var(--color-cream)]/80">
-            Est. monthly repayment <strong className="text-[var(--color-cream)]">{rm(c.monthly)}</strong>
+            Then a mortgage of <strong className="figure text-[var(--color-cream)]">{rm(c.monthly)}</strong>
             <span className="text-[var(--color-cream)]/55"> /mo over {costModel.defaultTenureYears} yrs</span>
           </div>
         </div>

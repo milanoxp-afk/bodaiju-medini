@@ -34,11 +34,11 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         {/* Wordmark */}
-        <Link href="/" className="group flex flex-col leading-none" aria-label="Bodaiju Residences home">
+        <Link href="/" className="group flex flex-col leading-none" aria-label="Bodaiju Residences Medini, home">
           <span className="font-serif text-xl font-semibold tracking-tight text-[var(--color-ink)]">
             Bodaiju
           </span>
-          <span className="text-[0.6rem] uppercase tracking-[0.3em] text-[var(--color-gold-deep)]">
+          <span className="text-[0.6rem] uppercase tracking-[0.3em] text-[var(--color-gold-text)]">
             Residences · Medini
           </span>
         </Link>
