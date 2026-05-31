@@ -33,12 +33,12 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        {/* Wordmark */}
-        <Link href="/" className="group flex flex-col leading-none" aria-label="Bodaiju Residences Medini, home">
-          <span className="font-serif text-xl font-semibold tracking-tight text-[var(--color-ink)]">
+        {/* Wordmark — adapts: light over the dark hero, dark once scrolled onto cream */}
+        <Link href="/" className="group flex flex-col leading-none">
+          <span className={`font-serif text-xl font-semibold tracking-tight transition-colors ${scrolled ? "text-[var(--color-ink)]" : "text-[var(--color-cream)]"}`}>
             Bodaiju
           </span>
-          <span className="text-[0.6rem] uppercase tracking-[0.3em] text-[var(--color-gold-text)]">
+          <span className={`text-[0.62rem] font-semibold uppercase tracking-[0.25em] transition-colors ${scrolled ? "text-[var(--color-gold-text)]" : "text-[var(--color-gold-soft)]"}`}>
             Residences · Medini
           </span>
         </Link>
@@ -49,7 +49,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-[var(--color-ink-soft)] transition-colors hover:text-[var(--color-gold-deep)]"
+              className={`text-sm font-medium transition-colors hover:text-[var(--color-gold-deep)] ${scrolled ? "text-[var(--color-ink-soft)]" : "text-[var(--color-cream)]/90"}`}
             >
               {item.label}
             </Link>
@@ -67,7 +67,7 @@ export function Header() {
             Enquire
           </a>
 
-          {/* Mobile toggle */}
+          {/* Mobile toggle — bars adapt to header background */}
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
@@ -75,9 +75,9 @@ export function Header() {
             className="flex h-10 w-10 items-center justify-center lg:hidden"
           >
             <div className="space-y-1.5">
-              <span className={`block h-0.5 w-6 bg-[var(--color-ink)] transition-all ${open ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`block h-0.5 w-6 bg-[var(--color-ink)] transition-all ${open ? "opacity-0" : ""}`} />
-              <span className={`block h-0.5 w-6 bg-[var(--color-ink)] transition-all ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+              <span className={`block h-0.5 w-6 transition-all ${open || scrolled ? "bg-[var(--color-ink)]" : "bg-[var(--color-cream)]"} ${open ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`block h-0.5 w-6 transition-all ${open || scrolled ? "bg-[var(--color-ink)]" : "bg-[var(--color-cream)]"} ${open ? "opacity-0" : ""}`} />
+              <span className={`block h-0.5 w-6 transition-all ${open || scrolled ? "bg-[var(--color-ink)]" : "bg-[var(--color-cream)]"} ${open ? "-translate-y-2 -rotate-45" : ""}`} />
             </div>
           </button>
         </div>

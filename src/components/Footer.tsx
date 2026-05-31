@@ -59,9 +59,9 @@ export function Footer() {
 
           {footerNav.map((col) => (
             <div key={col.heading}>
-              <h4 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold-soft)]">
+              <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold-soft)]">
                 {col.heading}
-              </h4>
+              </p>
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((l) => (
                   <li key={l.href}>
