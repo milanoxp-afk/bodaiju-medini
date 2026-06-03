@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { track } from "../lib/analytics";
 import { openCrisp } from "../lib/crisp";
 import { Button } from "./ui/Button";
@@ -15,15 +16,11 @@ import { Button } from "./ui/Button";
  *
  * Honest design: no fake scarcity, no guaranteed-return claims. Just a
  * lower-friction path to a real conversation.
+ *
+ * Note: option `value`s stay in English — they are the payload sent to the
+ * Crisp inbox so the team reads a single consistent language. Only the visible
+ * labels are localised.
  */
-
-const UNIT_OPTIONS = [
-  { value: "Type A (1-bed, 463 sqft)", label: "Type A", sub: "1-bed · 463 sqft" },
-  { value: "Type B (2-bed, 753 sqft)", label: "Type B", sub: "2-bed · 753 sqft" },
-  { value: "Type C (3-bed, 893 sqft)", label: "Type C", sub: "3-bed · 893 sqft" },
-  { value: "Type C1 (3-bed dual-key, 1,012 sqft)", label: "Type C1", sub: "3-bed dual-key" },
-  { value: "Not sure yet", label: "Not sure", sub: "Help me choose" },
-];
 
 const BUDGET_OPTIONS = [
   "Under RM400,000",
@@ -33,11 +30,26 @@ const BUDGET_OPTIONS = [
   "Still exploring",
 ];
 
-const PURPOSE_OPTIONS = ["Own stay", "Investment / rental", "Both", "Not sure yet"];
-
 type Step = 0 | 1 | 2;
 
 export function LeadForm() {
+  const t = useTranslations("form");
+
+  const UNIT_OPTIONS = [
+    { value: "Type A (1-bed, 463 sqft)", label: "Type A", sub: "1-bed · 463 sqft" },
+    { value: "Type B (2-bed, 753 sqft)", label: "Type B", sub: "2-bed · 753 sqft" },
+    { value: "Type C (3-bed, 893 sqft)", label: "Type C", sub: "3-bed · 893 sqft" },
+    { value: "Type C1 (3-bed dual-key, 1,012 sqft)", label: "Type C1", sub: "3-bed dual-key" },
+    { value: "Not sure yet", label: t("notSure"), sub: t("helpMeChoose") },
+  ];
+
+  const PURPOSE_OPTIONS = [
+    { value: "Own stay", label: t("ownStay") },
+    { value: "Investment / rental", label: t("investment") },
+    { value: "Both", label: t("both") },
+    { value: "Not sure yet", label: t("notSureYet") },
+  ];
+
   const [step, setStep] = useState<Step>(0);
   const [unit, setUnit] = useState("");
   const [budget, setBudget] = useState("");
@@ -86,13 +98,13 @@ export function LeadForm() {
         ))}
       </div>
       <p className="mb-4 text-xs uppercase tracking-[0.18em] text-[var(--color-muted)]">
-        Step {step + 1} of 3
+        {t("step", { n: step + 1 })}
       </p>
 
       {/* Step 1 — layout */}
       {step === 0 && (
         <div>
-          <h3 className="font-serif text-lg font-semibold text-[var(--color-ink)]">Which layout interests you?</h3>
+          <h3 className="font-serif text-lg font-semibold text-[var(--color-ink)]">{t("whichLayout")}</h3>
           <div className="mt-4 grid grid-cols-2 gap-2">
             {UNIT_OPTIONS.map((o) => (
               <button key={o.value} type="button" className={chip(unit === o.value)} onClick={() => { setUnit(o.value); next(1, "unit", o.value); }}>
@@ -107,22 +119,22 @@ export function LeadForm() {
       {/* Step 2 — budget + purpose */}
       {step === 1 && (
         <div>
-          <h3 className="font-serif text-lg font-semibold text-[var(--color-ink)]">What&rsquo;s your budget &amp; goal?</h3>
-          <p className="mb-3 mt-3 text-xs font-medium uppercase tracking-wide text-[var(--color-muted)]">Budget</p>
+          <h3 className="font-serif text-lg font-semibold text-[var(--color-ink)]">{t("budgetGoal")}</h3>
+          <p className="mb-3 mt-3 text-xs font-medium uppercase tracking-wide text-[var(--color-muted)]">{t("budget")}</p>
           <div className="grid gap-2">
             {BUDGET_OPTIONS.map((b) => (
               <button key={b} type="button" className={chip(budget === b)} onClick={() => setBudget(b)}>{b}</button>
             ))}
           </div>
-          <p className="mb-3 mt-5 text-xs font-medium uppercase tracking-wide text-[var(--color-muted)]">Purpose</p>
+          <p className="mb-3 mt-5 text-xs font-medium uppercase tracking-wide text-[var(--color-muted)]">{t("purpose")}</p>
           <div className="grid grid-cols-2 gap-2">
             {PURPOSE_OPTIONS.map((p) => (
-              <button key={p} type="button" className={chip(purpose === p)} onClick={() => setPurpose(p)}>{p}</button>
+              <button key={p.value} type="button" className={chip(purpose === p.value)} onClick={() => setPurpose(p.value)}>{p.label}</button>
             ))}
           </div>
           <div className="mt-6 flex gap-3">
-            <Button variant="outline" onClick={() => setStep(0)}>← Back</Button>
-            <Button variant="primary" className="flex-1" onClick={() => setStep(2)}>Continue →</Button>
+            <Button variant="outline" onClick={() => setStep(0)}>← {t("back")}</Button>
+            <Button variant="primary" className="flex-1" onClick={() => setStep(2)}>{t("continue")} →</Button>
           </div>
         </div>
       )}
@@ -130,31 +142,31 @@ export function LeadForm() {
       {/* Step 3 — contact */}
       {step === 2 && (
         <form onSubmit={submit}>
-          <h3 className="font-serif text-lg font-semibold text-[var(--color-ink)]">Where should we send details?</h3>
+          <h3 className="font-serif text-lg font-semibold text-[var(--color-ink)]">{t("whereToSend")}</h3>
           <p className="mt-1 mb-4 text-sm text-[var(--color-muted)]">
-            We&rsquo;ll send pricing, availability and floor plans — and answer any questions.
+            {t("whereToSendNote")}
           </p>
           <div className="space-y-4">
             <div>
-              <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[var(--color-ink)]">Name</label>
-              <input id="name" required value={name} onChange={(e) => setName(e.target.value)} className={field} placeholder="Your name" />
+              <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[var(--color-ink)]">{t("name")}</label>
+              <input id="name" required value={name} onChange={(e) => setName(e.target.value)} className={field} placeholder={t("namePlaceholder")} />
             </div>
             <div>
-              <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-[var(--color-ink)]">Phone / WhatsApp</label>
+              <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-[var(--color-ink)]">{t("phone")}</label>
               <input id="phone" required type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className={field} placeholder="+65 / +60 …" />
             </div>
           </div>
           <div className="mt-6 flex gap-3">
-            <Button variant="outline" onClick={() => setStep(1)}>← Back</Button>
-            <Button type="submit" variant="gold" className="flex-1">Send my details →</Button>
+            <Button variant="outline" onClick={() => setStep(1)}>← {t("back")}</Button>
+            <Button type="submit" variant="gold" className="flex-1">{t("sendDetails")} →</Button>
           </div>
           {done && (
             <p className="mt-3 text-center text-sm text-[var(--color-sage-deep)]">
-              Opening the chat… if nothing happens, use the chat bubble at the bottom-right.
+              {t("openingChat")}
             </p>
           )}
           <p className="mt-4 text-center text-xs text-[var(--color-muted)]">
-            By submitting, you consent to be contacted about Bodaiju Residences. We never share your details with third parties without your consent.
+            {t("consent")}
           </p>
         </form>
       )}

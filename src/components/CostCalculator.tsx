@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import {
   units,
   computeCosts,
   costModel,
   fx,
   singaporeAbsd,
-  legal,
   type BuyerType,
 } from "../data/project";
 import { rm, sgd, num } from "../lib/format";
@@ -15,13 +15,15 @@ import { openCrisp } from "../lib/crisp";
 import { track } from "../lib/analytics";
 import { Button } from "./ui/Button";
 
-const buyerOptions: { value: BuyerType; label: string; sub: string }[] = [
-  { value: "singaporean", label: "Singaporean", sub: "Foreign buyer" },
-  { value: "foreigner", label: "Other foreigner", sub: "Non-Malaysian" },
-  { value: "citizen", label: "Malaysian", sub: "Citizen" },
-];
-
 export function CostCalculator() {
+  const t = useTranslations("calculator");
+
+  const buyerOptions: { value: BuyerType; label: string; sub: string }[] = [
+    { value: "singaporean", label: t("singaporean"), sub: t("foreignBuyer") },
+    { value: "foreigner", label: t("otherForeigner"), sub: t("nonMalaysian") },
+    { value: "citizen", label: t("malaysian"), sub: t("citizen") },
+  ];
+
   const [buyer, setBuyer] = useState<BuyerType>("singaporean");
   const [unitCode, setUnitCode] = useState(units[1].code); // default Type B
   const [started, setStarted] = useState(false);
@@ -52,11 +54,11 @@ export function CostCalculator() {
   const txnPct = Math.round((txnCosts / price) * 100);
 
   const lines = [
-    { label: "Down payment", note: isForeign ? "30% (foreign LTV ~70%)" : "10% (citizen LTV ~90%)", value: c.downPayment },
-    { label: isForeign ? "Stamp duty (MOT) — 8% foreigner rate" : "Stamp duty (MOT) — tiered", note: "From 1 Jan 2026", value: c.motStampDuty },
-    { label: "Loan agreement stamp duty", note: "0.5% of loan", value: c.loanStampDuty },
-    { label: "Legal fees (SPA + loan)", note: "~1.5%", value: c.legalFees },
-    ...(isForeign ? [{ label: "Johor state consent", note: "~3% or RM30,000 min", value: c.stateConsent }] : []),
+    { label: t("downPayment"), note: isForeign ? "30% (foreign LTV ~70%)" : "10% (citizen LTV ~90%)", value: c.downPayment },
+    { label: isForeign ? t("stampDutyForeign") : t("stampDutyTiered"), note: t("stampDutyNote"), value: c.motStampDuty },
+    { label: t("loanStamp"), note: t("loanStampNote"), value: c.loanStampDuty },
+    { label: t("legalFees"), note: "~1.5%", value: c.legalFees },
+    ...(isForeign ? [{ label: t("stateConsent"), note: t("stateConsentNote"), value: c.stateConsent }] : []),
   ];
 
   const chatMessage =
@@ -74,7 +76,7 @@ export function CostCalculator() {
       <div className="space-y-8">
         {/* Buyer type */}
         <fieldset>
-          <legend className="eyebrow mb-3">I am a…</legend>
+          <legend className="eyebrow mb-3">{t("iAmA")}</legend>
           <div className="grid grid-cols-3 gap-2">
             {buyerOptions.map((b) => (
               <button
@@ -95,7 +97,7 @@ export function CostCalculator() {
 
         {/* Unit type */}
         <fieldset>
-          <legend className="eyebrow mb-3">Choose a layout</legend>
+          <legend className="eyebrow mb-3">{t("chooseLayout")}</legend>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {units.map((u) => (
               <button
@@ -117,7 +119,7 @@ export function CostCalculator() {
         {/* Price slider */}
         <fieldset>
           <div className="mb-3 flex items-baseline justify-between">
-            <legend className="eyebrow">Unit price</legend>
+            <legend className="eyebrow">{t("unitPrice")}</legend>
             <span className="figure text-lg font-semibold text-[var(--color-ink)]">{rm(price)}</span>
           </div>
           <input
@@ -131,7 +133,7 @@ export function CostCalculator() {
             aria-label="Adjust unit price for higher floor or view"
           />
           <p className="mt-2 text-xs text-[var(--color-muted)]">
-            Base price is {rm(unit.priceRm)}. Slide up to estimate higher floors / better views.
+            {t("priceSliderNote", { price: rm(unit.priceRm) })}
           </p>
         </fieldset>
       </div>
@@ -139,7 +141,7 @@ export function CostCalculator() {
       {/* ---------------- RESULTS ---------------- */}
       <div className="rounded-[var(--radius-card)] border border-[var(--color-line)] bg-[var(--color-paper)] p-6 shadow-sm sm:p-8">
         <div className="flex items-baseline justify-between border-b border-[var(--color-line)] pb-4">
-          <h3 className="font-serif text-lg font-semibold text-[var(--color-ink)]">Your estimate</h3>
+          <h3 className="font-serif text-lg font-semibold text-[var(--color-ink)]">{t("yourEstimate")}</h3>
           <span className="text-xs text-[var(--color-muted)]">FX ~RM{fx.myrPerSgd}/S$1</span>
         </div>
 
@@ -158,18 +160,21 @@ export function CostCalculator() {
         {/* Total upfront */}
         <div className="mt-2 rounded-xl bg-[var(--color-ink)] p-5 text-[var(--color-cream)]">
           <div className="flex items-baseline justify-between">
-            <span className="text-sm uppercase tracking-[0.15em] text-[var(--color-gold-soft)]">Total cash needed upfront</span>
+            <span className="text-sm uppercase tracking-[0.15em] text-[var(--color-gold-soft)]">{t("totalUpfront")}</span>
           </div>
           <div className="mt-1 flex flex-wrap items-baseline gap-x-3">
             <span className="figure text-3xl font-semibold">{rm(c.totalUpfront)}</span>
             <span className="figure text-[var(--color-cream)]/70">{sgd(c.totalUpfront / fx.myrPerSgd)}</span>
           </div>
           <p className="mt-2 text-xs leading-relaxed text-[var(--color-cream)]/55">
-            Includes your {isForeign ? "30%" : "10%"} down payment (equity you keep) plus
-            ~{txnPct}% transaction costs (stamp duty,{isForeign ? " state consent," : ""} legal fees).
+            {t("upfrontExplain", {
+              pct: isForeign ? "30%" : "10%",
+              txn: `${txnPct}%`,
+              extra: isForeign ? `${t("stateConsent")}, ` : "",
+            })}
           </p>
           <div className="mt-3 border-t border-white/10 pt-3 text-sm text-[var(--color-cream)]/80">
-            Then a mortgage of <strong className="figure text-[var(--color-cream)]">{rm(c.monthly)}</strong>
+            {t("thenMortgage")} <strong className="figure text-[var(--color-cream)]">{rm(c.monthly)}</strong>
             <span className="text-[var(--color-cream)]/55"> /mo over {costModel.defaultTenureYears} yrs</span>
           </div>
         </div>
@@ -178,8 +183,7 @@ export function CostCalculator() {
         {isForeign && (
           <div className="mt-4 rounded-xl border border-[var(--color-sage)]/30 bg-[var(--color-sage)]/8 p-4">
             <p className="text-sm leading-relaxed text-[var(--color-ink)]">
-              In Singapore, a foreigner would pay <strong>{sgd(absdEquivalent / fx.myrPerSgd)}</strong> in 60% ABSD
-              alone on this sum — <em>before</em> the price of any home. Here, it buys the whole unit.
+              {t("absdLine", { amount: sgd(absdEquivalent / fx.myrPerSgd) })}
             </p>
           </div>
         )}
@@ -196,9 +200,9 @@ export function CostCalculator() {
               openCrisp(chatMessage);
             }}
           >
-            Send this estimate to our team →
+            {t("sendEstimate")} →
           </Button>
-          <p className="mt-3 text-xs leading-relaxed text-[var(--color-muted)]">{legal.disclaimers.calculator}</p>
+          <p className="mt-3 text-xs leading-relaxed text-[var(--color-muted)]">{t("calcDisclaimer")}</p>
         </div>
       </div>
     </div>
