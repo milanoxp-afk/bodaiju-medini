@@ -86,8 +86,8 @@ export function Footer() {
               <p className="text-[var(--color-cream)]/40">Permit details are reproduced from project marketing materials and should be verified against the official brochure.</p>
             </div>
             <div className="space-y-3">
-              <p className="italic">&ldquo;{legal.buyerFeeDisclaimer}&rdquo;</p>
               <p>{legal.disclaimers.general}</p>
+              <p>{legal.disclaimers.foreignBuyer}</p>
             </div>
           </div>
 

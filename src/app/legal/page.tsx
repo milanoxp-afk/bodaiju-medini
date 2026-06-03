@@ -33,16 +33,14 @@ export default function LegalPage() {
           </p>
         </div>
 
-        {/* BOVAEP */}
+        {/* Enquiries */}
         <div className="mt-6 rounded-[var(--radius-card)] border border-[var(--color-line)] p-6">
-          <h2 className="font-serif text-lg font-semibold text-[var(--color-ink)]">Estate agency notice</h2>
-          <p className="mt-2 text-sm italic leading-relaxed text-[var(--color-ink-soft)]">&ldquo;{legal.buyerFeeDisclaimer}&rdquo;</p>
-          <p className="mt-3 text-sm text-[var(--color-muted)]">
-            This advertisement is published by an authorised representative. Agency name, registration number (E/REN)
-            and office telephone are displayed in accordance with the Valuers, Appraisers, Estate Agents and Property
-            Managers Act 1981 (Act 242).
+          <h2 className="font-serif text-lg font-semibold text-[var(--color-ink)]">Enquiries</h2>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
+            Enquiries about Bodaiju Residences are directed to the project sales team. This website is informational;
+            no purchase obligation arises until a Sale and Purchase Agreement is executed.
           </p>
-          <p className="mt-2 text-sm text-[var(--color-muted)]">Enquiries: {contact.whatsappDisplay} · {contact.email}</p>
+          <p className="mt-2 text-sm text-[var(--color-muted)]">Contact: {contact.whatsappDisplay} · {contact.email}</p>
         </div>
 
         {/* Disclaimers */}

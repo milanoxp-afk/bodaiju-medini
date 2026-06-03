@@ -79,12 +79,14 @@ export const project = {
 };
 
 /* -------------------------------------------------------------------------- */
-/*  CONTACT  (replace REN details with the authorised seller's before launch)  */
+/*  CONTACT                                                                    */
+/*  No professional credential (REN/agency) is asserted on the public site.   */
+/*  Enquiries route to the project sales team. If a licensed REN/agency is     */
+/*  added later, set renName/renNumber/agencyName/agencyE + office line and    */
+/*  re-enable the BOVAEP estate-agency notice in /legal and the footer.        */
 /* -------------------------------------------------------------------------- */
 export const contact = {
-  // TODO: replace with the authorised REN/agency details for BOVAEP compliance.
-  agentName: "Simon",
-  agentTitle: "REN — Authorised Seller",
+  teamName: "Bodaiju Residences Sales Team",
   // Use international format without "+" for wa.me links.
   whatsappNumber: "60127936522",
   whatsappDisplay: "+60 12-793 6522",
