@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { Analytics } from "../components/Analytics";
 import { CrispChat } from "../components/CrispChat";
 import { StickyCTA } from "../components/StickyCTA";
+import { StructuredData } from "../components/StructuredData";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -26,7 +27,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://www.bodaiju-residence.com";
+const SITE_URL = "https://www.bodaijumedini.my";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -78,6 +79,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <StickyCTA />
+        <StructuredData />
         <Analytics />
         <CrispChat />
       </body>
