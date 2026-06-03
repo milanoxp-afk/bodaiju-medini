@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Container } from "../../components/ui/Container";
-import { Button } from "../../components/ui/Button";
-import { Reveal } from "../../components/Reveal";
-import { project, macro } from "../../data/project";
+import { Container } from "../../../components/ui/Container";
+import { Button } from "../../../components/ui/Button";
+import { Reveal } from "../../../components/Reveal";
+import { project, macro } from "../../../data/project";
 
 export const metadata: Metadata = {
   title: "Understanding Your Title — Tenure, PLS & Freehold in Medini",

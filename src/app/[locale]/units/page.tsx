@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Container } from "../../components/ui/Container";
-import { Button } from "../../components/ui/Button";
-import { CrispButton } from "../../components/CrispButton";
-import { Reveal } from "../../components/Reveal";
-import { units, pricePsf, project } from "../../data/project";
-import { rm, num } from "../../lib/format";
+import { Container } from "../../../components/ui/Container";
+import { Button } from "../../../components/ui/Button";
+import { CrispButton } from "../../../components/CrispButton";
+import { Reveal } from "../../../components/Reveal";
+import { units, pricePsf, project } from "../../../data/project";
+import { rm, num } from "../../../lib/format";
 
 export const metadata: Metadata = {
   title: "Residences — 1, 2 & 3-Bedroom Layouts from RM299,000",

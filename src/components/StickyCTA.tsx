@@ -1,20 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "../i18n/routing";
 import { track } from "../lib/analytics";
 
 /**
- * Sticky bottom CTA bar — mobile only.
- * Research: a persistent bottom CTA lifts mobile conversion ~31%
- * (Contentsquare, 58M sessions). Most property traffic is mobile.
- *
- *  - Mobile only (hidden >= sm; desktop has a persistent header CTA).
- *  - Appears after scrolling past the hero so it doesn't fight the hero buttons.
- *  - Hidden on /contact (that whole page is the CTA).
+ * Sticky bottom CTA bar — mobile only (+31% mobile conversion lever).
+ * Hidden on /contact (that whole page is the CTA).
  */
 export function StickyCTA() {
+  const t = useTranslations("stickyCta");
   const pathname = usePathname();
   const [show, setShow] = useState(false);
 
@@ -35,7 +31,7 @@ export function StickyCTA() {
     >
       <div className="flex items-center gap-3 px-4 py-3">
         <div className="min-w-0 flex-1">
-          <p className="truncate text-xs text-[var(--color-muted)]">Bodaiju Residences · Medini</p>
+          <p className="truncate text-xs text-[var(--color-muted)]">{t("tagline")}</p>
           <p className="figure text-sm font-semibold text-[var(--color-ink)]">From RM299,000</p>
         </div>
         <Link
@@ -43,7 +39,7 @@ export function StickyCTA() {
           onClick={() => track("calculator_started", { source: "sticky_cta" })}
           className="shrink-0 rounded-full bg-[var(--color-gold)] px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:bg-[var(--color-gold-deep)] hover:text-white"
         >
-          Calculate cost
+          {t("calculateCost")}
         </Link>
       </div>
     </div>

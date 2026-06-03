@@ -23,8 +23,10 @@
   --color-muted: #5f5f67; /* secondary text — AA-safe on cream (6.0:1) */
 
   /* ---- Typography ---- */
-  --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* CJK fonts are appended to every stack so Chinese glyphs render consistently
+     in both languages; Latin fonts lead so EN is unaffected. */
+  --font-serif: var(--font-fraunces), var(--font-noto-serif-sc), ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), var(--font-noto-sans-sc), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-mono-geist), ui-monospace, "SF Mono", Menlo, monospace;
 
   /* ---- Type scale (fluid) ---- */
@@ -44,6 +46,25 @@
 :root {
   --background: var(--color-cream);
   --foreground: var(--color-ink);
+}
+
+/* ---- CJK readability (Chinese locale) ----
+   Dense Han characters need more line-height and look ~10–15% small next to
+   Latin at the same point size. Applied only when the <body> is in zh. */
+.lang-zh {
+  line-height: 1.7;
+  font-size: 1.05rem; /* ~+5% optical-size compensation */
+}
+.lang-zh p,
+.lang-zh li {
+  line-height: 1.8;
+}
+.lang-zh .heading-tight {
+  line-height: 1.25; /* serif display still needs tighter leading even in CJK */
+  letter-spacing: 0; /* tracking that flatters Latin harms Han legibility */
+}
+.lang-zh .eyebrow {
+  letter-spacing: 0.1em; /* reduce the heavy Latin tracking for Han */
 }
 
 html {

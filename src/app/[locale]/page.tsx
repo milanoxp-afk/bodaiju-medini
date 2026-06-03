@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Container } from "../components/ui/Container";
-import { Button } from "../components/ui/Button";
-import { CrispButton } from "../components/CrispButton";
-import { Reveal } from "../components/Reveal";
-import { BodhiMotif } from "../components/BodhiMotif";
+import { Container } from "../../components/ui/Container";
+import { Button } from "../../components/ui/Button";
+import { CrispButton } from "../../components/CrispButton";
+import { Reveal } from "../../components/Reveal";
+import { BodhiMotif } from "../../components/BodhiMotif";
 import {
   project,
   units,
@@ -13,8 +13,8 @@ import {
   distances,
   singaporeAbsd,
   computeCosts,
-} from "../data/project";
-import { rm, sgd, num } from "../lib/format";
+} from "../../data/project";
+import { rm, sgd, num } from "../../lib/format";
 
 const heroStats = [
   { label: "From", value: "RM299,000" },

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Container } from "../../components/ui/Container";
-import { Button } from "../../components/ui/Button";
-import { CrispButton } from "../../components/CrispButton";
-import { LeadForm } from "../../components/LeadForm";
-import { contact } from "../../data/project";
+import { Container } from "../../../components/ui/Container";
+import { Button } from "../../../components/ui/Button";
+import { CrispButton } from "../../../components/CrispButton";
+import { LeadForm } from "../../../components/LeadForm";
+import { contact } from "../../../data/project";
 
 export const metadata: Metadata = {
   title: "Contact & Showroom Visit",

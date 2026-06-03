@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Container } from "../../components/ui/Container";
-import { legal, project, unverifiedItems } from "../../data/project";
+import { Container } from "../../../components/ui/Container";
+import { legal, project, unverifiedItems } from "../../../data/project";
 
 export const metadata: Metadata = {
   title: "Legal Notices & Disclaimers",

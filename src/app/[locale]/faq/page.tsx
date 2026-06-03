@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Container } from "../../components/ui/Container";
-import { Button } from "../../components/ui/Button";
-import { faqs } from "../../data/project";
+import { Container } from "../../../components/ui/Container";
+import { Button } from "../../../components/ui/Button";
+import { faqs } from "../../../data/project";
 
 export const metadata: Metadata = {
   title: "FAQ — Honest Answers for Cross-Border Buyers",

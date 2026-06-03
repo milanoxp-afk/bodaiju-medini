@@ -1,5 +1,5 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
+import { Link } from "../../i18n/routing";
 
 type Variant = "primary" | "outline" | "ghost" | "gold";
 
@@ -53,7 +53,8 @@ export function Button({
       );
     }
     return (
-      <Link href={href} className={cls} onClick={onClick} aria-label={ariaLabel}>
+      // href is a runtime string; cast for the typed-routes Link.
+      <Link href={href as Parameters<typeof Link>[0]["href"]} className={cls} onClick={onClick} aria-label={ariaLabel}>
         {children}
       </Link>
     );

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Container } from "../../components/ui/Container";
-import { CostCalculator } from "../../components/CostCalculator";
-import { Reveal } from "../../components/Reveal";
+import { Container } from "../../../components/ui/Container";
+import { CostCalculator } from "../../../components/CostCalculator";
+import { Reveal } from "../../../components/Reveal";
 
 export const metadata: Metadata = {
   title: "Cost Calculator — What a Bodaiju Home Really Costs",

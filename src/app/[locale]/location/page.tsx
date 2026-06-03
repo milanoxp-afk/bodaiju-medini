@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Container } from "../../components/ui/Container";
-import { Button } from "../../components/ui/Button";
-import { Reveal } from "../../components/Reveal";
-import { distances, ecosystem, macro } from "../../data/project";
+import { Container } from "../../../components/ui/Container";
+import { Button } from "../../../components/ui/Button";
+import { Reveal } from "../../../components/Reveal";
+import { distances, ecosystem, macro } from "../../../data/project";
 
 export const metadata: Metadata = {
   title: "Location — Medini, Iskandar Puteri: RTS, JS-SEZ & What's Nearby",
