@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { whatsappLink } from "../data/project";
 import { track } from "../lib/analytics";
+import { openCrisp } from "../lib/crisp";
 
 const nav = [
   { label: "Residences", href: "/units" },
@@ -57,15 +57,13 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href={whatsappLink("Hi, I'd like to enquire about Bodaiju Residences @ Medini.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track("whatsapp_clicked", { location: "header" })}
+          <button
+            type="button"
+            onClick={() => { track("whatsapp_clicked", { location: "header", channel: "crisp" }); openCrisp("Hi, I'd like to enquire about Bodaiju Residences @ Medini."); }}
             className="hidden rounded-full bg-[var(--color-ink)] px-5 py-2.5 text-sm font-medium text-[var(--color-cream)] transition-all hover:bg-[var(--color-ink-soft)] sm:inline-flex"
           >
             Enquire
-          </a>
+          </button>
 
           {/* Mobile toggle — bars adapt to header background */}
           <button
@@ -100,15 +98,13 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <a
-            href={whatsappLink("Hi, I'd like to enquire about Bodaiju Residences @ Medini.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => { track("whatsapp_clicked", { location: "mobile_menu" }); setOpen(false); }}
-            className="mt-3 mb-2 inline-flex justify-center rounded-full bg-[#25D366] px-5 py-3 text-sm font-medium text-white"
+          <button
+            type="button"
+            onClick={() => { track("whatsapp_clicked", { location: "mobile_menu", channel: "crisp" }); setOpen(false); openCrisp("Hi, I'd like to enquire about Bodaiju Residences @ Medini."); }}
+            className="mt-3 mb-2 inline-flex justify-center rounded-full bg-[var(--color-gold)] px-5 py-3 text-sm font-medium text-[var(--color-ink)]"
           >
-            Chat on WhatsApp
-          </a>
+            Chat with us
+          </button>
         </nav>
       </div>
     </header>

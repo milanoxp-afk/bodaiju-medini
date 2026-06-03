@@ -7,11 +7,11 @@ import {
   costModel,
   fx,
   singaporeAbsd,
-  whatsappLink,
   legal,
   type BuyerType,
 } from "../data/project";
 import { rm, sgd, num } from "../lib/format";
+import { openCrisp } from "../lib/crisp";
 import { track } from "../lib/analytics";
 import { Button } from "./ui/Button";
 
@@ -59,7 +59,7 @@ export function CostCalculator() {
     ...(isForeign ? [{ label: "Johor state consent", note: "~3% or RM30,000 min", value: c.stateConsent }] : []),
   ];
 
-  const waMessage =
+  const chatMessage =
     `Hi, I just used the Bodaiju cost calculator.\n` +
     `Unit: ${unit.label} (${num(unit.sqft)} sq ft)\n` +
     `Buyer: ${buyerOptions.find((b) => b.value === buyer)?.label}\n` +
@@ -187,14 +187,16 @@ export function CostCalculator() {
         {/* CTA */}
         <div className="mt-6">
           <Button
-            href={whatsappLink(waMessage)}
-            external
             variant="gold"
             size="lg"
             className="w-full"
-            onClick={() => { track("calculator_completed", { unit: unitCode, buyer, price }); track("whatsapp_clicked", { location: "calculator" }); }}
+            onClick={() => {
+              track("calculator_completed", { unit: unitCode, buyer, price });
+              track("whatsapp_clicked", { location: "calculator", channel: "crisp" });
+              openCrisp(chatMessage);
+            }}
           >
-            Send this estimate to my WhatsApp →
+            Send this estimate to our team →
           </Button>
           <p className="mt-3 text-xs leading-relaxed text-[var(--color-muted)]">{legal.disclaimers.calculator}</p>
         </div>

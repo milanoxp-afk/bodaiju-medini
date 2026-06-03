@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { whatsappLink } from "../data/project";
 import { track } from "../lib/analytics";
+import { openCrisp } from "../lib/crisp";
 import { Button } from "./ui/Button";
 
 /**
- * Lead form. With no backend configured, it hands off to WhatsApp with the
- * captured details pre-filled (so no lead is lost). When a form endpoint is
- * added later, POST to it here before the WhatsApp handoff.
+ * Lead form. On submit, opens the Crisp chat with the captured details
+ * pre-loaded as the first message — so the enquiry lands in the Crisp inbox
+ * with full context (name, phone, unit of interest).
  */
 export function LeadForm() {
   const [name, setName] = useState("");
@@ -18,12 +18,12 @@ export function LeadForm() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    track("form_submitted", { interest });
+    track("form_submitted", { interest, channel: "crisp" });
     setDone(true);
     const msg =
       `Hi, I'd like to register my interest in Bodaiju Residences.\n` +
       `Name: ${name}\nPhone: ${phone}\nInterested in: ${interest}`;
-    window.open(whatsappLink(msg), "_blank", "noopener,noreferrer");
+    openCrisp(msg);
   };
 
   const field =
@@ -50,11 +50,11 @@ export function LeadForm() {
         </select>
       </div>
       <Button type="submit" variant="gold" size="lg" className="w-full">
-        Register interest via WhatsApp →
+        Register interest →
       </Button>
       {done && (
         <p className="text-center text-sm text-[var(--color-sage-deep)]">
-          Opening WhatsApp… if nothing happens, message us directly at the number above.
+          Opening the chat… if nothing happens, use the chat bubble at the bottom-right of the page.
         </p>
       )}
       <p className="text-center text-xs text-[var(--color-muted)]">

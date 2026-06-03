@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "../components/ui/Container";
 import { Button } from "../components/ui/Button";
+import { CrispButton } from "../components/CrispButton";
 import { Reveal } from "../components/Reveal";
 import { BodhiMotif } from "../components/BodhiMotif";
 import {
@@ -11,7 +12,6 @@ import {
   sellingPoints,
   distances,
   singaporeAbsd,
-  whatsappLink,
   computeCosts,
 } from "../data/project";
 import { rm, sgd, num } from "../lib/format";
@@ -319,14 +319,14 @@ export default function Home() {
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
               <Button href="/calculator" variant="gold" size="lg">Open the cost calculator →</Button>
-              <a
-                href={whatsappLink("Hi, I'd like to book a showroom visit at Bodaiju Residences @ Medini.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-9 py-4 text-base font-medium text-[var(--color-cream)] transition-all hover:-translate-y-0.5 hover:border-white"
+              <CrispButton
+                message="Hi, I'd like to book a showroom visit at Bodaiju Residences @ Medini."
+                location="home_final_cta"
+                size="lg"
+                className="border border-white/30 text-[var(--color-cream)] hover:-translate-y-0.5 hover:border-white"
               >
                 Book a showroom visit
-              </a>
+              </CrispButton>
             </div>
           </Reveal>
         </Container>

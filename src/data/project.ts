@@ -87,10 +87,8 @@ export const project = {
 /* -------------------------------------------------------------------------- */
 export const contact = {
   teamName: "Bodaiju Residences Sales Team",
-  // Use international format without "+" for wa.me links.
-  whatsappNumber: "60127936522",
-  whatsappDisplay: "+60 12-793 6522",
-  email: "info@cimedini.com",
+  // All live contact runs through the Crisp chat widget (the owner's inbox).
+  // No phone/email is published — they were the developer's, not the seller's.
   salesGallery: {
     name: "Bodaiju Residences Sales Gallery",
     address:
@@ -98,11 +96,6 @@ export const contact = {
     mapsQuery: "Pusat Perdagangan Ion Akses, Medini, Iskandar Puteri, Johor",
   },
 };
-
-/** Build a wa.me link with a pre-filled, context-aware message. */
-export function whatsappLink(message: string): string {
-  return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
-}
 
 /* -------------------------------------------------------------------------- */
 /*  DEVELOPER & CONTRACTOR                                                     */

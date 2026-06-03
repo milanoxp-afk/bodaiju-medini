@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "../../components/ui/Container";
-import { legal, project, contact, unverifiedItems } from "../../data/project";
+import { legal, project, unverifiedItems } from "../../data/project";
 
 export const metadata: Metadata = {
   title: "Legal Notices & Disclaimers",
@@ -37,10 +37,9 @@ export default function LegalPage() {
         <div className="mt-6 rounded-[var(--radius-card)] border border-[var(--color-line)] p-6">
           <h2 className="font-serif text-lg font-semibold text-[var(--color-ink)]">Enquiries</h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
-            Enquiries about Bodaiju Residences are directed to the project sales team. This website is informational;
-            no purchase obligation arises until a Sale and Purchase Agreement is executed.
+            Enquiries about Bodaiju Residences are directed to the project sales team via the chat on this website.
+            This website is informational; no purchase obligation arises until a Sale and Purchase Agreement is executed.
           </p>
-          <p className="mt-2 text-sm text-[var(--color-muted)]">Contact: {contact.whatsappDisplay} · {contact.email}</p>
         </div>
 
         {/* Disclaimers */}
@@ -81,7 +80,8 @@ export default function LegalPage() {
           <strong className="text-[var(--color-ink)]">Privacy.</strong> Personal data submitted through this website
           (name, contact details, enquiry) is used solely to respond to your enquiry about Bodaiju Residences and is
           handled in accordance with Malaysia&rsquo;s Personal Data Protection Act 2010. We do not sell your data or
-          share it with third parties without your consent. To request access or deletion of your data, contact {contact.email}.
+          share it with third parties without your consent. To request access to or deletion of your data, contact us
+          via the chat on this website.
         </p>
       </Container>
     </section>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { project, contact, legal } from "../data/project";
+import { ChatLink } from "./ChatLink";
 
 const footerNav = [
   {
@@ -47,13 +48,14 @@ export function Footer() {
               <br />
               {contact.salesGallery.address}
             </p>
-            <div className="mt-5 space-y-1 text-sm">
-              <a href={`tel:${contact.whatsappNumber}`} className="block text-[var(--color-cream)]/90 hover:text-[var(--color-gold-soft)]">
-                {contact.whatsappDisplay}
-              </a>
-              <a href={`mailto:${contact.email}`} className="block text-[var(--color-cream)]/90 hover:text-[var(--color-gold-soft)]">
-                {contact.email}
-              </a>
+            <div className="mt-5 text-sm">
+              <ChatLink
+                message="Hi, I'd like to enquire about Bodaiju Residences @ Medini."
+                location="footer"
+                className="block font-medium text-[var(--color-cream)]/90 hover:text-[var(--color-gold-soft)]"
+              >
+                Chat with our team →
+              </ChatLink>
             </div>
           </div>
 

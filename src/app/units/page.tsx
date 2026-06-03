@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Container } from "../../components/ui/Container";
 import { Button } from "../../components/ui/Button";
+import { CrispButton } from "../../components/CrispButton";
 import { Reveal } from "../../components/Reveal";
-import { units, pricePsf, whatsappLink, project } from "../../data/project";
+import { units, pricePsf, project } from "../../data/project";
 import { rm, num } from "../../lib/format";
 
 export const metadata: Metadata = {
@@ -67,14 +68,14 @@ export default function UnitsPage() {
                     </div>
                     <div className="mt-6 space-y-2">
                       <Button href="/calculator" variant="primary" className="w-full">Calculate my cost</Button>
-                      <Button
-                        href={whatsappLink(`Hi, I'm interested in ${u.label} (${u.bedrooms}-bed, ${num(u.sqft)} sqft) at Bodaiju Residences. What's the current availability?`)}
-                        external
+                      <CrispButton
+                        message={`Hi, I'm interested in ${u.label} (${u.bedrooms}-bed, ${num(u.sqft)} sqft) at Bodaiju Residences. What's the current availability?`}
                         variant="outline"
                         className="w-full"
+                        location={`units_${u.code}`}
                       >
                         Ask about {u.label}
-                      </Button>
+                      </CrispButton>
                     </div>
                   </div>
                 </article>

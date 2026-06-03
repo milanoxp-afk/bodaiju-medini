@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Container } from "../../components/ui/Container";
 import { Button } from "../../components/ui/Button";
+import { CrispButton } from "../../components/CrispButton";
 import { LeadForm } from "../../components/LeadForm";
-import { contact, whatsappLink } from "../../data/project";
+import { contact } from "../../data/project";
 
 export const metadata: Metadata = {
   title: "Contact & Showroom Visit",
   description:
-    "Book a showroom visit or register your interest in Bodaiju Residences @ Medini. Visit the sales gallery at Pusat Perdagangan Ion Akses, Iskandar Puteri, or message us on WhatsApp.",
+    "Book a showroom visit or register your interest in Bodaiju Residences @ Medini. Visit the sales gallery at Pusat Perdagangan Ion Akses, Iskandar Puteri, or chat with our team online.",
   alternates: { canonical: "/contact" },
 };
 
@@ -36,20 +37,17 @@ export default function ContactPage() {
               <h2 className="font-serif text-xl font-semibold text-[var(--color-ink)]">{contact.salesGallery.name}</h2>
               <p className="mt-2 leading-relaxed text-[var(--color-muted)]">{contact.salesGallery.address}</p>
 
-              <div className="mt-5 space-y-2 text-sm">
-                <a href={whatsappLink("Hi, I'd like to book a showroom visit at Bodaiju Residences.")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-medium text-[var(--color-ink)] hover:text-[var(--color-gold-deep)]">
-                  WhatsApp: {contact.whatsappDisplay}
-                </a>
-                <br />
-                <a href={`mailto:${contact.email}`} className="font-medium text-[var(--color-ink)] hover:text-[var(--color-gold-deep)]">
-                  {contact.email}
-                </a>
-              </div>
+              <p className="mt-5 text-sm text-[var(--color-muted)]">
+                Prefer to chat now? Use the chat bubble at the bottom-right of any page, or:
+              </p>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button href={whatsappLink("Hi, I'd like to book a showroom visit at Bodaiju Residences.")} external variant="gold">
+              <div className="mt-4 flex flex-wrap gap-3">
+                <CrispButton message="Hi, I'd like to book a showroom visit at Bodaiju Residences." location="contact_book_visit" variant="gold">
                   Book showroom visit
-                </Button>
+                </CrispButton>
+                <CrispButton message="Hi, I have a question about Bodaiju Residences." location="contact_ask" variant="outline">
+                  Ask a question
+                </CrispButton>
                 <Button href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.salesGallery.mapsQuery)}`} external variant="outline">
                   Open in Maps
                 </Button>
