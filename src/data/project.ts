@@ -354,11 +354,15 @@ export const macro = {
   rtsLink: {
     name: "JB–Singapore RTS Link",
     route: "Bukit Chagar (JB) ↔ Woodlands North (Singapore)",
-    serviceStart: "1 January 2027 (target)",
+    // Official position (Transport Minister Anthony Loke, Jan 2026): construction
+    // targeted complete by end-2026, passenger operations from January 2027.
+    serviceStart: "January 2027",
     journeyMinutes: 5,
     capacityPerHour: 10000,
     fareRange: "RM15.50 – RM21.70 per journey (indicative)",
-    progressNote: "~65% complete as of November 2025.",
+    // No single authoritative overall % is officially published; do not render a
+    // hard figure. Officials describe physical works as substantially complete.
+    progressNote: "Physical works substantially complete; systems testing under way (2026).",
     distanceFromBodajuKm: 25, // RTS is a drive/cycle play, not walkable from Medini.
     verification: "verified" as Verification,
   },
@@ -478,9 +482,11 @@ export const faqs: Faq[] = [
     q: "What does it really cost a Singaporean to buy, beyond the headline price?",
     a:
       "Beyond the purchase price, foreign buyers pay 8% stamp duty (from 1 Jan 2026), Johor state " +
-      "consent (~3% or RM30,000 minimum), and ~1.5% legal fees — roughly 12% on top of the price. " +
-      "Our cost calculator shows the full breakdown in both MYR and SGD. For context, Singapore charges " +
-      "foreigners 60% ABSD before the property price itself.",
+      "consent (~3% or RM30,000 minimum, whichever is higher), 0.5% loan stamp duty and ~1.5% legal " +
+      "fees — roughly 13–20% in transaction costs on top of the price, proportionally higher on lower-" +
+      "priced units because of the RM30,000 consent floor. Our cost calculator shows the exact breakdown " +
+      "per unit in both MYR and SGD. For context, Singapore charges foreigners 60% ABSD before the " +
+      "property price itself.",
   },
   {
     category: "market",
@@ -586,6 +592,6 @@ export const sellingPoints: { title: string; detail: string }[] = [
   { title: "RTS Link from 2027", detail: "~5-minute JB–Singapore crossing targeted to open January 2027." },
   { title: "Bursa-disclosed construction", detail: "RM185.99m contract with listed builder MGB; Tower A target 30 Nov 2027." },
   { title: "No Bumi quota, no foreigner price floor", detail: "Medini's special-zone status remains in force in 2026." },
-  { title: "Education + healthcare + leisure in 5 minutes", detail: "EduCity, Gleneagles Medini and LEGOLAND are all within a short radius." },
+  { title: "Education, healthcare & leisure minutes away", detail: "EduCity (2–4 km), Gleneagles Medini and LEGOLAND (~2 km) are all a short drive away." },
   { title: "Possible freehold conversion path", detail: "IIB's Jan-2025 PLS→freehold programme may apply — subject to developer election." },
 ];
