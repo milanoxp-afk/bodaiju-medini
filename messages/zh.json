@@ -6,7 +6,8 @@
     "developer": "开发商",
     "faq": "常见问题",
     "enquire": "咨询洽购",
-    "chatWithUs": "在线咨询"
+    "chatWithUs": "在线咨询",
+    "facilities": "设施配套"
   },
   "common": {
     "from": "起价",
@@ -36,7 +37,7 @@
     "heroByline": "Creed Group（日本）荣誉呈献 · MGB Berhad承建 · 2028年竣工",
     "conceptEyebrow": "菩提樹 · The Bodhi Tree",
     "conceptTitle": "以菩提为名，寓意静定与生长",
-    "conceptBody": "菩提树——智慧、安宁、长寿与生长的象征。这一哲思贯穿于此地的每一处细节：空中花园、绿意庭院，以及处处见日式考究的空间，让现代生活得以从容慢下来——即便置身东南亚发展最快的走廊之畔。",
+    "conceptBody": "菩提树——智慧、安宁、长寿与生长的象征。这一哲思贯穿于此地的每一处细节：园林庭院、绿意空间，以及处处见日式考究的空间，让现代生活得以从容慢下来——即便置身东南亚发展最快的走廊之畔。",
     "trustEyebrow": "为何值得您郑重看待",
     "trust1Title": "言出必行的开发商",
     "trust1Body": "Creed Group（日本，成立于1996年）已于2020年在金边交付一座928户的Bodaiju项目——同等规模、真实落成、有人入住的先例。",
@@ -195,6 +196,42 @@
     "C1pos": "双钥匙——一半自住，一半出租。",
     "C1best": "希望自住的同时获取租金收入的投资者。",
     "dualKey": "双钥匙"
+  },
+  "facilities": {
+    "metaTitle": "设施与配套",
+    "heroEyebrow": "菩提树的生活",
+    "heroTitle": "一座让生活慢下来的设施层",
+    "heroSubtitle": "共享设施位于A座8楼，两座住户均可使用。以下为已确认的设施清单；完整的逐项清单以开发商官方资料为准。",
+    "level8Note": "设施层——A座8楼",
+    "groupRecreation": "休闲娱乐",
+    "groupWellness": "康体与园林",
+    "groupCommunity": "社区空间",
+    "groupSecurity": "保安与出入",
+    "caveat": "所示设施依据项目营销资料确认。完整的逐项设施清单以开发商官方资料及买卖合约（SPA）为准。",
+    "ctaTitle": "想索取完整设施清单？",
+    "ctaBody": "欢迎向我们的团队索取开发商的完整设施清单及8楼平面图。",
+    "items": {
+      "pool": "游泳池",
+      "kidsPool": "儿童池",
+      "playground": "儿童游乐场",
+      "bbq": "烧烤亭",
+      "court": "多用途／篮球场",
+      "gamesRoom": "游戏室",
+      "gym": "健身房",
+      "yogaDeck": "观景／瑜伽平台",
+      "garden": "园林景观",
+      "gazebo": "凉亭",
+      "sunkenSeating": "下沉式休憩区",
+      "multipurposeHall": "多用途礼堂",
+      "functionRoom": "活动室",
+      "kidsRoom": "儿童室",
+      "surau": "男／女祈祷室（surau）",
+      "changing": "更衣室与盥洗室",
+      "disabledToilet": "无障碍卫生间",
+      "security24": "24小时保安",
+      "podium": "7层停车楼平台",
+      "balcony": "每户私人阳台"
+    }
   },
   "places": {
     "d0": "Tuas第二通道关卡（马来西亚侧）",

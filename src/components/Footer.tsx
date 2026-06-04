@@ -13,6 +13,7 @@ export async function Footer() {
       heading: t("exploreHeading"),
       links: [
         { label: nav("residences"), href: "/units" as const },
+        { label: nav("facilities"), href: "/facilities" as const },
         { label: nav("calculator"), href: "/calculator" as const },
         { label: nav("location"), href: "/location" as const },
       ],

@@ -8,6 +8,7 @@ import { openCrisp } from "../lib/crisp";
 
 const navItems = [
   { key: "residences", href: "/units" as const },
+  { key: "facilities", href: "/facilities" as const },
   { key: "calculator", href: "/calculator" as const },
   { key: "location", href: "/location" as const },
   { key: "faq", href: "/faq" as const },

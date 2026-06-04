@@ -595,3 +595,57 @@ export const sellingPoints: { title: string; detail: string }[] = [
   { title: "Education, healthcare & leisure minutes away", detail: "EduCity (2–4 km), Gleneagles Medini and LEGOLAND (~2 km) are all a short drive away." },
   { title: "Possible freehold conversion path", detail: "IIB's Jan-2025 PLS→freehold programme may apply — subject to developer election." },
 ];
+
+/* -------------------------------------------------------------------------- */
+/*  FACILITIES — VERIFIED ONLY (per master brief §6.1).                        */
+/*  Deliberately EXCLUDES items marked LIKELY/UNVERIFIED: CCTV, sky garden,    */
+/*  "3-tier security", "EV charging ready", "GreenRE". Translation keys use    */
+/*  the stable `key`; grouped for display. All carry a brochure caveat.        */
+/* -------------------------------------------------------------------------- */
+export interface FacilityGroup {
+  group: "recreation" | "wellness" | "community" | "security";
+  items: { key: string; en: string }[];
+}
+
+export const facilities: FacilityGroup[] = [
+  {
+    group: "recreation",
+    items: [
+      { key: "pool", en: "Swimming pool" },
+      { key: "kidsPool", en: "Kids pool" },
+      { key: "playground", en: "Playground" },
+      { key: "bbq", en: "BBQ pavilion" },
+      { key: "court", en: "Multipurpose / basketball court" },
+      { key: "gamesRoom", en: "Games room" },
+    ],
+  },
+  {
+    group: "wellness",
+    items: [
+      { key: "gym", en: "Gymnasium" },
+      { key: "yogaDeck", en: "Viewing / yoga deck" },
+      { key: "garden", en: "Landscaped gardens" },
+      { key: "gazebo", en: "Gazebo" },
+      { key: "sunkenSeating", en: "Sunken seating" },
+    ],
+  },
+  {
+    group: "community",
+    items: [
+      { key: "multipurposeHall", en: "Multipurpose hall" },
+      { key: "functionRoom", en: "Function room" },
+      { key: "kidsRoom", en: "Kids room" },
+      { key: "surau", en: "Male / female surau" },
+      { key: "changing", en: "Changing areas & toilets" },
+      { key: "disabledToilet", en: "Accessible (disabled) toilet" },
+    ],
+  },
+  {
+    group: "security",
+    items: [
+      { key: "security24", en: "24-hour security" },
+      { key: "podium", en: "7-level car-park podium" },
+      { key: "balcony", en: "Private balcony to every unit" },
+    ],
+  },
+];

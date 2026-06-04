@@ -6,7 +6,8 @@
     "developer": "Developer",
     "faq": "FAQ",
     "enquire": "Enquire",
-    "chatWithUs": "Chat with us"
+    "chatWithUs": "Chat with us",
+    "facilities": "Facilities"
   },
   "common": {
     "from": "From",
@@ -36,7 +37,7 @@
     "heroByline": "By Creed Group (Japan) · Built by MGB Berhad · Completion 2028",
     "conceptEyebrow": "菩提樹 · The Bodhi Tree",
     "conceptTitle": "Named for the tree of stillness and growth",
-    "conceptBody": "The Bodhi Tree — a symbol of enlightenment, peace, longevity and growth. That philosophy shapes everything here — sky gardens, green courtyards and Japanese-considered spaces designed to let modern life slow down, even at the edge of one of Southeast Asia's fastest-growing corridors.",
+    "conceptBody": "The Bodhi Tree — a symbol of enlightenment, peace, longevity and growth. That philosophy shapes everything here — garden courtyards, green landscaping and Japanese-considered spaces designed to let modern life slow down, even at the edge of one of Southeast Asia's fastest-growing corridors.",
     "trustEyebrow": "Why you can take this seriously",
     "trust1Title": "A developer that delivers",
     "trust1Body": "Creed Group (Japan, est. 1996) completed a 928-unit Bodaiju in Phnom Penh in 2020 — a real, occupied precedent at this exact scale.",
@@ -195,6 +196,42 @@
     "C1pos": "Dual-key — live in one half, rent the other.",
     "C1best": "Investors wanting rental income while owner-occupying.",
     "dualKey": "Dual-key"
+  },
+  "facilities": {
+    "metaTitle": "Facilities & Amenities",
+    "heroEyebrow": "Life at Bodaiju",
+    "heroTitle": "A facilities deck designed to slow life down",
+    "heroSubtitle": "The shared amenities sit on Level 8 of Tower A, accessible to both towers. Below is the confirmed facilities set; the full verbatim list is finalised in the developer's fact sheet.",
+    "level8Note": "Facilities floor — Level 8, Tower A",
+    "groupRecreation": "Recreation",
+    "groupWellness": "Wellness & gardens",
+    "groupCommunity": "Community spaces",
+    "groupSecurity": "Security & access",
+    "caveat": "Facilities shown are confirmed from project marketing materials. The complete, verbatim amenities list is subject to the developer's official fact sheet and the Sale and Purchase Agreement.",
+    "ctaTitle": "Want the full amenities fact sheet?",
+    "ctaBody": "Ask our team for the developer's complete facilities list and the Level 8 plan.",
+    "items": {
+      "pool": "Swimming pool",
+      "kidsPool": "Kids pool",
+      "playground": "Playground",
+      "bbq": "BBQ pavilion",
+      "court": "Multipurpose / basketball court",
+      "gamesRoom": "Games room",
+      "gym": "Gymnasium",
+      "yogaDeck": "Viewing / yoga deck",
+      "garden": "Landscaped gardens",
+      "gazebo": "Gazebo",
+      "sunkenSeating": "Sunken seating",
+      "multipurposeHall": "Multipurpose hall",
+      "functionRoom": "Function room",
+      "kidsRoom": "Kids room",
+      "surau": "Male / female surau",
+      "changing": "Changing areas & toilets",
+      "disabledToilet": "Accessible (disabled) toilet",
+      "security24": "24-hour security",
+      "podium": "7-level car-park podium",
+      "balcony": "Private balcony to every unit"
+    }
   },
   "places": {
     "d0": "Tuas Second Link CIQ (Malaysia side)",
