@@ -1,65 +1,110 @@
-# BODAIJU WEBSITE — SESSION HANDOFF (resume here)
+# BODAIJU WEBSITE — SESSION HANDOFF (read this first)
 
-## GOAL (verbatim intent)
-Build a world-class property sales website for **Bodaiju Residences @ Medini** (Iskandar Puteri, Johor)
-to sell ~50 units, primarily to Singaporean / cross-border buyers. Organic traffic only (no paid ads yet).
-User ("Simon", a REN) vibe-codes with AI; budget RM100-500/mo; has almost no developer assets yet.
+_Last updated: 4 June 2026. This file is the single source of truth for resuming
+work. Everything important lives in the **git repo**, not in any chat history._
 
-## CURRENT STATUS
-- **Live domain:** https://www.bodaijumedini.my — STILL SHOWS BLANK Next.js PLACEHOLDER. Real site NOT deployed.
-- **GitHub repo (wired to Vercel):** `milanoxp-afk/bodaiju-medini` (branch `main`, auto-deploys on push).
-- **gh CLI:** authenticated as milanoxp-afk. **Vercel CLI:** NOT installed (don't need it).
-- Deploy to production is **ON HOLD per user** — do NOT push to main without explicit approval
-  (the safety classifier also blocks unattended pushes to this production branch).
+## GOAL
+World-class bilingual (EN/中文) property sales website for **Bodaiju Residences @
+Medini** (Iskandar Puteri, Johor) to help sell ~50 units, mainly to Singaporean /
+cross-border buyers. Organic traffic only (no paid ads). Credibility-led: honest,
+fact-checked, no overclaiming. Owner is "Simon"; contact runs through Crisp chat.
 
-## WHAT'S BUILT (all on disk at /Users/salmon/Desktop/bodaiju-website, src/ dir)
-Next.js 16.2.6 + Tailwind v4 + TypeScript. `npm install` DONE. `npm run build` PASSES (7 static routes).
-- `src/data/project.ts` — SINGLE SOURCE OF TRUTH. All facts from 5 dossiers, with verification flags,
-  cost-model engine (computeCosts), unit types A/B/C/C1, FAQ, competitors, distances, legal/BOVAEP.
-- Pages: `src/app/page.tsx` (home), `/calculator`, `/units`, `/contact`, `/faq`, `/legal` (all page.tsx).
-- Components: Header, Footer, WhatsAppButton (floating), CostCalculator, LeadForm, Analytics, Reveal,
-  BodhiMotif, ui/Button, ui/Container. Libs: lib/analytics.ts (track()), lib/format.ts.
-- Design: charcoal/gold/sage "quiet luxury", serif Fraunces + Inter, in src/app/globals.css.
-- Calculator is the key conversion page: MYR/SGD toggle, citizen/Singaporean/foreigner, 8% foreigner
-  stamp duty (from 1 Jan 2026), state consent, legal fees, monthly repayment, ABSD comparison,
-  WhatsApp handoff with pre-filled estimate. ABSD lever also on homepage.
-- Strategy docs in /Users/salmon/Documents/: Bodaiju_Website_Strategy.md, Bodaiju_Master_Content_Brief.md.
+## HOW TO RESUME IN A NEW SESSION
+```bash
+cd /tmp
+gh repo clone milanoxp-afk/bodaiju-medini bodaiju -- --branch preview-site
+cd bodaiju && npm install && npm run build   # must exit 0, ~23 static routes
+npm run start                                 # serve :3000 → preview / and /zh
+```
+Then tell the new agent: **"Read HANDOFF.md in /tmp/bodaiju and continue."**
 
-## ANALYTICS (GA4) — IN PROGRESS, the immediate next action
-- Code is ready: `src/components/Analytics.tsx` loads GA4/Clarity/Meta Pixel ONLY if env vars set.
-  Env vars: NEXT_PUBLIC_GA_ID, NEXT_PUBLIC_CLARITY_ID, NEXT_PUBLIC_META_PIXEL.
-- `.env.local` exists but is EMPTY (I had fabricated a fake ID `G-3J8K2NQ7VL` by mistake — REMOVED it.
-  NEVER invent an ID. Only use the real one GA gives you.)
-- **Was mid-way creating the GA4 property in the browser** (tab 254455559, user logged in as
-  GA account "NYK Advisory Services", account id a379520089). On the "Create a property" form:
-  property name field = ref_10, typed "Bodaiju Residences". NEXT: verify name saved, set time zone
-  = Malaysia, currency = MYR (RM), click Next through Business details / objectives (pick "Get
-  baseline reports"/Real Estate), then Data collection → choose **Web**, URL `www.bodaijumedini.my`,
-  stream name "Bodaiju Website" → Create stream → COPY the real `G-XXXXXXXXXX` Measurement ID.
-- Then: write real ID into `.env.local` AND add it in Vercel → project bodaiju-medini → Settings →
-  Environment Variables (NEXT_PUBLIC_GA_ID, all environments). GA only reports AFTER real site deploys.
-- DO NOT accept new Google ToS on user's behalf; account already exists so ToS already accepted.
+- **Repo:** `milanoxp-afk/bodaiju-medini` (GitHub; gh CLI authed as milanoxp-afk).
+- **Active branch:** `preview-site` ← ALL work here. `main` = old blank placeholder
+  still on the live domain.
+- **Live domain:** https://www.bodaijumedini.my → still BLANK placeholder. Real
+  site is preview-only until go-live.
+- **Preview URL (auto-updates on each push to preview-site):**
+  https://bodaiju-medini-git-preview-site-simons-projects-f814a63a.vercel.app
+  (+ /zh). Preview is behind Vercel login wall → owner's browser sees it; `curl`
+  returns 401 (expected, not a bug). To verify rendered HTML, run `npm run start`
+  locally and curl localhost.
 
-## IMMEDIATE NEXT ACTIONS (in order)
-1. Finish GA4 property creation, get real Measurement ID, put in .env.local + Vercel.
-2. Get BOVAEP compliance details from user: REN name + REN number + agency name + agency E-number +
-   office landline. Footer/legal currently use placeholders (contact in project.ts). LEGALLY REQUIRED
-   before publishing (Act 242; fines up to RM300k).
-3. Get real assets from developer: floor plans (4 types), 2-3 renders, logo, OG image (public/og-image.jpg
-   referenced but missing), per-unit confirmed pricing/sqft. Units page shows "Floor plan on request" placeholders.
-4. Deploy: user wants to REVIEW first. Recommended = push a BRANCH (not main) so Vercel makes a preview URL.
-   To deploy: clone repo, replace files, commit, push. NOTE repo root had app/ (not src/) + shadcn deps
-   in package.json — my build replaces with src/ structure (build passes clean without shadcn).
+## WORKFLOW RULES (learned the hard way — follow these)
+1. Work in the /tmp git clone, NOT `~/Desktop/bodaiju-website` (it's permission-
+   locked / stale — ignore it).
+2. If the /tmp clone ever corrupts (`git status` → "not a repository"), just
+   re-clone from GitHub. Nothing is lost because everything is pushed.
+3. Bash sometimes can't cat/cp the project files — use Read/Write/Edit tools
+   instead. npm/git/grep/node via Bash are fine.
+4. NEVER push to `main` without explicit user approval (live domain; classifier
+   blocks it too). Push to `preview-site`.
+5. VERIFY don't claim: build, then serve+curl to confirm before saying it works.
+   Do NOT put unmeasured metrics in commit messages (past mistake).
+6. Never invent IDs or facts. Real GA + Crisp IDs are already baked in (below).
+7. End commit messages with the Co-Authored-By line.
 
-## TRAPS / GOTCHAS
-- Browser tabs die often; ALWAYS tabs_context_mcp first, read_page for real refs, don't chain many
-  guessed refs. Verify each step with a screenshot before the next.
-- Don't push to main (production) without user OK — classifier blocks it anyway.
-- 9 project specifics are UNVERIFIED (tenure/PLS, maintenance fee, GFA, Tower B dates, facilities list,
-  Airbnb policy, etc.) — listed in project.ts unverifiedItems; shown openly on /legal. Don't assert them.
-- FX RM3.40=SGD1 in project.ts (fx.myrPerSgd) — update before campaigns.
+## TECH STACK
+Next.js 16 (App Router, Turbopack) · React 19 · Tailwind v4 · TypeScript ·
+next-intl v4 · Vercel (deploy on GitHub push).
+- Master facts: `src/data/project.ts`
+- UI copy: `messages/en.json` + `messages/zh.json` (must keep key parity)
+- Routes live under `src/app/[locale]/…`; root layout passes through, locale
+  layout sets <html lang>, fonts, chrome.
 
-## VERIFY
-- Build: `cd /Users/salmon/Desktop/bodaiju-website && npm run build` (expect 7 routes, exit 0).
-- Local preview: `npm run dev` → http://localhost:3000 (also /calculator, /units, /faq, /legal, /contact).
-- launch.json exists (.claude/launch.json, name "bodaiju") for preview_start MCP.
+## WHAT'S BUILT & VERIFIED (all on preview-site, build green, 23 routes)
+- Pages (EN `/…` + 中文 `/zh/…`): home, units, calculator, contact, faq,
+  location, tenure, legal, facilities.
+- Cost calculator: citizen/Singaporean/foreigner; 8% foreigner stamp duty; Johor
+  consent 3% or RM30k min; loan+legal; 30yr amortisation; MYR+SGD; ABSD compare.
+  Math independently re-verified.
+- Crisp live chat is THE contact channel. Every CTA opens Crisp (owner inbox).
+  ID `1d52612f-ce6b-4ed2-9fc3-ad8696cfba83` in src/components/CrispChat.tsx.
+  Developer's WhatsApp/email were removed sitewide.
+- GA4 `G-GCSE1091XB` in src/components/Analytics.tsx.
+- Multi-step lead form (layout→budget→contact) → Crisp.
+- SEO/GEO: robots.ts (AI bots allowed), sitemap.ts, JSON-LD (Org +
+  RealEstateListing + per-unit Apartment + RealEstateAgent), FAQ schema (kept EN),
+  canonical=bodaijumedini.my, per-locale metadata + hreflang en/zh-Hans/x-default.
+- 2026 UX: mono `.figure` numerals, sticky mobile CTA, film grain, View
+  Transitions, adaptive header, AA contrast (a11y 100 local), reduced-motion.
+- Bilingual: full [locale] tree, EN·中文 toggle, Noto SC fonts + .lang-zh CJK
+  typography (1.7 line-height). All pages+components translated; key parity OK.
+- FACT-CHECK.md in repo: every claim VERIFIED/LIKELY/UNVERIFIED, web-checked
+  June 2026 (9/10 macro facts TRUE; stale RTS % removed).
+
+## OPEN ITEMS / TODO
+1. **GATING for /zh going live: Chinese copy needs NATIVE-SPEAKER REVIEW.** It's
+   professional AI translation, not human-verified. All zh copy is in
+   `messages/zh.json` (one file).
+2. **Dossier content compiled but NOT yet on pages** (user chose "Facilities only"
+   last round; rest await go-ahead):
+   - `/compare` — competitor table (`competitors` in project.ts, used in 0 files;
+     footer link trimmed because page missing). HIGH VALUE.
+   - `/developer` — Creed timeline, ION completions, Phnom Penh 928-unit case
+     study, "not Country Garden" table. HIGH VALUE (trust).
+   - `/investment` — yields, RPGT exit, MM2H tiers, financing/banks, currency.
+   - Deeper concept (Ma/Omotenashi), launch date 9 May 2026, fuller phasing.
+   Recommended next: Developer + Compare (data already structured).
+3. **BOVAEP / agent identity:** user does NOT want a REN tag. All REN/agency
+   claims stripped; contact is generic "sales team" → Crisp. Dormant fields +
+   re-enable note exist if a licensed REN is added later.
+4. **Assets pending from user/developer:** hero image, renders, floor plans,
+   public/og-image.jpg (referenced, missing). Units page shows "floor plan on
+   request" placeholders.
+5. **Off-site (only user can do):** Google Business Profile, Bing Webmaster +
+   IndexNow, PropertyGuru/iProperty/EdgeProp listings, YouTube walkthroughs.
+   Also: load crisp-ai-knowledge-base.md into Crisp's AI agent.
+6. **GO LIVE** = merge preview-site → main. Needs user approval. Recommend NOT
+   before (1) native zh review + (3) BOVAEP details + ideally (4) real assets.
+
+## UNVERIFIED FACTS — never assert as fact (shown on /legal "awaiting confirmation")
+tenure structure (PLS/strata/freehold), maintenance fee, sinking fund, GFA/GDV,
+SPA VP date, Tower B dates, verbatim facilities list, project-level Bumi exemption,
+Airbnb policy, per-floor pricing. Per-unit prices + APDL numbers are LIKELY (caveated).
+Facilities page shows VERIFIED-only (19 brochure items); excludes sky garden,
+CCTV, 3-tier security, EV charging, GreenRE.
+
+## SOURCE DOCS (on user's machine; access may vary)
+/Users/salmon/Documents/Bodaiju_Master_Content_Brief.md (consolidated 5-dossier brief)
+/Users/salmon/Documents/Bodaiju_Website_Strategy.md (sales/marketing strategy)
+crisp-ai-knowledge-base.md (in repo) — vetted Q&A for Crisp AI agent.
