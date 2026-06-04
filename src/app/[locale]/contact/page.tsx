@@ -76,7 +76,7 @@ function ContactContent() {
 
               <div className="mt-8 overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-line)]">
                 <iframe
-                  title="Sales gallery location"
+                  title={t("mapTitle")}
                   src={mapsSrc}
                   className="h-72 w-full"
                   loading="lazy"
