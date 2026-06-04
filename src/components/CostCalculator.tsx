@@ -81,6 +81,7 @@ export function CostCalculator() {
             {buyerOptions.map((b) => (
               <button
                 key={b.value}
+                aria-pressed={buyer === b.value}
                 onClick={() => { setBuyer(b.value); markStarted(); track("calculator_nationality", { buyer: b.value }); }}
                 className={`rounded-xl border px-3 py-3 text-left transition-all ${
                   buyer === b.value
@@ -102,6 +103,7 @@ export function CostCalculator() {
             {units.map((u) => (
               <button
                 key={u.code}
+                aria-pressed={unitCode === u.code}
                 onClick={() => { setUnitCode(u.code); markStarted(); track("calculator_unit_selected", { unit: u.code }); }}
                 className={`rounded-xl border px-3 py-3 text-center transition-all ${
                   unitCode === u.code
@@ -110,7 +112,7 @@ export function CostCalculator() {
                 }`}
               >
                 <span className="block font-serif text-base font-semibold text-[var(--color-ink)]">{u.label}</span>
-                <span className="block text-xs text-[var(--color-muted)]">{u.bedrooms} bed · {num(u.sqft)} sf</span>
+                <span className="block text-xs text-[var(--color-muted)]">{u.bedrooms} bed · {num(u.sqft)} sq ft</span>
               </button>
             ))}
           </div>

@@ -36,10 +36,10 @@ export function LeadForm() {
   const t = useTranslations("form");
 
   const UNIT_OPTIONS = [
-    { value: "Type A (1-bed, 463 sqft)", label: "Type A", sub: "1-bed · 463 sqft" },
-    { value: "Type B (2-bed, 753 sqft)", label: "Type B", sub: "2-bed · 753 sqft" },
-    { value: "Type C (3-bed, 893 sqft)", label: "Type C", sub: "3-bed · 893 sqft" },
-    { value: "Type C1 (3-bed dual-key, 1,012 sqft)", label: "Type C1", sub: "3-bed dual-key" },
+    { value: "Type A (1-bed, 463 sq ft)", label: "Type A", sub: "1-bed · 463 sq ft" },
+    { value: "Type B (2-bed, 753 sq ft)", label: "Type B", sub: "2-bed · 753 sq ft" },
+    { value: "Type C (3-bed, 893 sq ft)", label: "Type C", sub: "3-bed · 893 sq ft" },
+    { value: "Type C1 (3-bed dual-key, 1,012 sq ft)", label: "Type C1", sub: "3-bed dual-key" },
     { value: "Not sure yet", label: t("notSure"), sub: t("helpMeChoose") },
   ];
 
@@ -107,7 +107,7 @@ export function LeadForm() {
           <h3 className="font-serif text-lg font-semibold text-[var(--color-ink)]">{t("whichLayout")}</h3>
           <div className="mt-4 grid grid-cols-2 gap-2">
             {UNIT_OPTIONS.map((o) => (
-              <button key={o.value} type="button" className={chip(unit === o.value)} onClick={() => { setUnit(o.value); next(1, "unit", o.value); }}>
+              <button key={o.value} type="button" aria-pressed={unit === o.value} className={chip(unit === o.value)} onClick={() => { setUnit(o.value); next(1, "unit", o.value); }}>
                 <span className="block font-semibold text-[var(--color-ink)]">{o.label}</span>
                 <span className="block text-xs text-[var(--color-muted)]">{o.sub}</span>
               </button>
@@ -123,13 +123,13 @@ export function LeadForm() {
           <p className="mb-3 mt-3 text-xs font-medium uppercase tracking-wide text-[var(--color-muted)]">{t("budget")}</p>
           <div className="grid gap-2">
             {BUDGET_OPTIONS.map((b) => (
-              <button key={b} type="button" className={chip(budget === b)} onClick={() => setBudget(b)}>{b}</button>
+              <button key={b} type="button" aria-pressed={budget === b} className={chip(budget === b)} onClick={() => setBudget(b)}>{b}</button>
             ))}
           </div>
           <p className="mb-3 mt-5 text-xs font-medium uppercase tracking-wide text-[var(--color-muted)]">{t("purpose")}</p>
           <div className="grid grid-cols-2 gap-2">
             {PURPOSE_OPTIONS.map((p) => (
-              <button key={p.value} type="button" className={chip(purpose === p.value)} onClick={() => setPurpose(p.value)}>{p.label}</button>
+              <button key={p.value} type="button" aria-pressed={purpose === p.value} className={chip(purpose === p.value)} onClick={() => setPurpose(p.value)}>{p.label}</button>
             ))}
           </div>
           <div className="mt-6 flex gap-3">

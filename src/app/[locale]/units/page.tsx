@@ -91,7 +91,7 @@ function UnitsContent() {
                     <div className="mt-6 space-y-2">
                       <Button href="/calculator" variant="primary" className="w-full">{t("calculateMyCost")}</Button>
                       <CrispButton
-                        message={`Hi, I'm interested in ${u.label} (${u.bedrooms}-bed, ${num(u.sqft)} sqft) at Bodaiju Residences. What's the current availability?`}
+                        message={`Hi, I'm interested in ${u.label} (${u.bedrooms}-bed, ${num(u.sqft)} sq ft) at Bodaiju Residences. What's the current availability?`}
                         variant="outline"
                         className="w-full"
                         location={`units_${u.code}`}

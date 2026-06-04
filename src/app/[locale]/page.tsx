@@ -15,6 +15,7 @@ import {
   distances,
   singaporeAbsd,
   computeCosts,
+  rmToSgd,
 } from "../../data/project";
 import { rm, sgd, num } from "../../lib/format";
 
@@ -120,7 +121,7 @@ function HomeContent() {
             <Reveal>
               <p className="eyebrow">{t("absdEyebrow")}</p>
               <h2 className="heading-tight mt-4 font-serif text-[var(--text-h2)] font-semibold">
-                <span className="figure">{sgd(typeA.priceRm / 3.4)}</span>
+                <span className="figure">{sgd(rmToSgd(typeA.priceRm))}</span>
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-[var(--color-muted)]">{t("absdBody1")}</p>
               <p className="mt-4 text-lg leading-relaxed text-[var(--color-muted)]">{t("absdBody2")}</p>
@@ -132,7 +133,7 @@ function HomeContent() {
                 <div className="grid grid-cols-2 text-center">
                   <div className="border-r border-[var(--color-line)] p-7">
                     <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-muted)]">{t("absdSingapore")}</p>
-                    <p className="figure mt-3 text-3xl font-semibold text-[var(--color-ink)]">{sgd(sgAbsdOnEntry / 3.4)}</p>
+                    <p className="figure mt-3 text-3xl font-semibold text-[var(--color-ink)]">{sgd(rmToSgd(sgAbsdOnEntry))}</p>
                     <p className="mt-1 text-sm text-[var(--color-muted)]">{t("absdSgNote")}</p>
                   </div>
                   <div className="bg-[var(--color-cream)] p-7">
@@ -143,7 +144,7 @@ function HomeContent() {
                 </div>
                 <div className="border-t border-[var(--color-line)] bg-[var(--color-ink)] px-7 py-5 text-center text-sm text-[var(--color-cream)]/80">
                   {t("absdAllIn")} <strong className="text-[var(--color-cream)]">{rm(foreignerCost.totalUpfront)}</strong>{" "}
-                  <span className="text-[var(--color-cream)]/55">({sgd(foreignerCost.totalUpfront / 3.4)})</span>
+                  <span className="text-[var(--color-cream)]/55">({sgd(rmToSgd(foreignerCost.totalUpfront))})</span>
                 </div>
               </div>
               <p className="mt-3 text-center text-xs text-[var(--color-muted)]">{t("absdDisclaimer")}</p>
