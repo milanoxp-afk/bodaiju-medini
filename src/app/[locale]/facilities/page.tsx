@@ -17,7 +17,7 @@ export async function generateMetadata({
   return {
     title: t("metaTitle"),
     description:
-      "Confirmed facilities at Bodaiju Residences @ Medini — pool, gymnasium, landscaped gardens, multipurpose hall, courts and more, on the Level 8 facilities deck of Tower A.",
+      "Confirmed facilities at Bodaiju Residences @ Medini — pool, gymnasium, landscaped gardens, multipurpose hall, courts and more, on the Level 7 facilities deck and roof sky garden of Tower A.",
     alternates: { canonical: "/facilities" },
   };
 }
@@ -96,7 +96,7 @@ function FacilitiesContent() {
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-[var(--color-cream)]/70">{t("ctaBody")}</p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
-              <CrispButton message="Hi, may I have the full facilities fact sheet and the Level 8 plan for Bodaiju Residences?" location="facilities_cta" variant="gold" size="lg">
+              <CrispButton message="Hi, may I have the full facilities fact sheet and the Level 7 plan for Bodaiju Residences?" location="facilities_cta" variant="gold" size="lg">
                 {c("contactUs")}
               </CrispButton>
               <Button href="/units" variant="outline" size="lg" className="border-white/30 text-[var(--color-cream)] hover:border-white">

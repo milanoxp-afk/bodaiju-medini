@@ -4,6 +4,23 @@ Last full fact-check: **June 2026**. Method: every rendered claim traced to the
 master content brief (VERIFIED/LIKELY/UNVERIFIED labels) + live web verification
 of time-sensitive macro facts. Calculator arithmetic independently re-derived.
 
+## 📄 Primary source added — developer Sales Kit (13 January 2026) + e-brochure
+The owner provided the official Sales Kit (dated 13 Jan 2026) and e-brochure — primary
+developer documents. They resolve most items previously marked UNVERIFIED:
+
+| Fact | Confirmed value | Source |
+|---|---|---|
+| Land tenure | 99-yr parcel lease — "Leased Over The Parcel", from 28 Dec 2015 (→2114), Service Apartment Title, HSD 546583 / PTD 200287 | Sales Kit Project Details + FAQ |
+| Maintenance fee | RM0.32/sq ft (developer estimate); sinking fund 10% of it | Sales Kit Project Details |
+| Facilities location | **Level 7 deck + roof sky garden** (corrected from "Level 8" on site) | Sales Kit "The Facilities" |
+| Now-confirmed facilities | Roof sky garden, 3-tier security, EV charging, GreenRE certified | Sales Kit USPs + brochure |
+| Land / density | 3.54 acres, plot ratio 4.29, 802 units (TwrA 405 / TwrB 397), TwrA 32 / TwrB 31 storeys | Sales Kit |
+| Price (Tower A) | RM299,000 – RM659,000; Tower B TBC | Sales Kit FAQ |
+| Completion | Tower A 24 months from SPA; Tower B TBC; 24-mo defect liability | Sales Kit FAQ |
+| Unit mix | A 463sf×50 · B 753sf×211 · C 893sf×478 · C1 dual-key 1,012sf×63 | Sales Kit |
+| End-financing panel | Bank Islam / Bank Muamalat / RHB approved; Affin / Public / CIMB pending | Sales Kit |
+| Developer reg | Creed Property Malaysia 200901023760 (866859-P) | Sales Kit FAQ |
+
 ## ✅ VERIFIED — confirmed current as of June 2026 (web-checked)
 
 | Claim on site | Verdict | Source |
@@ -34,15 +51,13 @@ of time-sensitive macro facts. Calculator arithmetic independently re-derived.
 3.85%/30yr amortisation all compute correctly. PSF: A RM646, B RM574, C RM573, C1 RM603.
 
 ## ⚠️ LIKELY — published with appropriate caveats (trace to dossiers, not primary-confirmed)
-- Per-unit prices (B RM432k, C RM512k, C1 RM609,999) and per-layout sqft — aggregator/dossier sourced.
-- Land area 3.54 acres.
+- Per-unit exact prices (B RM432k, C RM512k, C1 RM609,999) — dossier-sourced, but within the developer-confirmed Tower A range RM299k–RM659k. Per-layout sq ft (463/753/893/1,012) now confirmed by the sales kit.
 - Developer licence / APDL footer numbers — from brochure footer; verify vs live brochure/TEDUH.
 - "USD 3 billion group GDV" — self-reported by Creed, labelled as such.
 
 ## ❌ UNVERIFIED — NOT asserted as fact anywhere; shown on /legal "awaiting confirmation"
-Tenure structure (PLS/strata/freehold), maintenance fee, sinking fund, GFA/GDV,
-SPA VP date, Tower B dates, verbatim facilities list, project-level Bumi exemption,
-Airbnb policy, per-floor pricing/availability.
+Project GDV, Tower B construction dates (developer states: to be confirmed), project-level
+Bumi-quota release, Airbnb/short-term-rental house rules, per-floor pricing & current availability.
 
 ## Standing rule
 Do not promote any UNVERIFIED item to a factual claim until CI Medini confirms in

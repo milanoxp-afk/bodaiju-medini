@@ -202,15 +202,15 @@
     "metaTitle": "Facilities & Amenities",
     "heroEyebrow": "Life at Bodaiju",
     "heroTitle": "A facilities deck designed to slow life down",
-    "heroSubtitle": "The shared amenities sit on Level 8 of Tower A, accessible to both towers. Below is the confirmed facilities set; the full verbatim list is finalised in the developer's fact sheet.",
-    "level8Note": "Facilities floor — Level 8, Tower A",
+    "heroSubtitle": "The shared amenities sit on the Level 7 deck of Tower A — plus a roof sky garden — accessible to both towers. Below is the confirmed facilities set from the developer's sales kit.",
+    "level8Note": "Facilities deck — Level 7 + roof sky garden, Tower A",
     "groupRecreation": "Recreation",
     "groupWellness": "Wellness & gardens",
     "groupCommunity": "Community spaces",
     "groupSecurity": "Security & access",
     "caveat": "Facilities shown are confirmed from project marketing materials. The complete, verbatim amenities list is subject to the developer's official fact sheet and the Sale and Purchase Agreement.",
     "ctaTitle": "Want the full amenities fact sheet?",
-    "ctaBody": "Ask our team for the developer's complete facilities list and the Level 8 plan.",
+    "ctaBody": "Ask our team for the developer's complete facilities list and the Level 7 plan.",
     "items": {
       "pool": "Swimming pool",
       "kidsPool": "Kids pool",
@@ -221,6 +221,7 @@
       "gym": "Gymnasium",
       "yogaDeck": "Viewing / yoga deck",
       "garden": "Landscaped gardens",
+      "skyGarden": "Roof sky garden",
       "gazebo": "Gazebo",
       "sunkenSeating": "Sunken seating",
       "multipurposeHall": "Multipurpose hall",
@@ -229,7 +230,8 @@
       "surau": "Male / female surau",
       "changing": "Changing areas & toilets",
       "disabledToilet": "Accessible (disabled) toilet",
-      "security24": "24-hour security",
+      "security24": "3-tier security service",
+      "evCharging": "EV charging ready",
       "podium": "7-level car-park podium",
       "balcony": "Private balcony to every unit"
     }
@@ -262,7 +264,7 @@
     "stillTitle": "Still have a question?",
     "stillBody": "Ask us anything — including the things that aren't on this page. We'd rather you buy with full information.",
     "q0": "What is the land tenure — is it freehold or leasehold?",
-    "a0": "Bodaiju is marketed as a 99-year leasehold service residence. Medini's land historically sits on IIB freehold land under a Private Lease Scheme (PLS), and since January 2025 IIB has offered PLS→freehold conversion. The exact title structure for this project is being confirmed in writing from the developer, and the SPA tenure clause will be shown verbatim. Always verify the title structure with your own lawyer before signing.",
+    "a0": "Bodaiju is a 99-year leasehold service residence. The developer's sales kit documents the title as \"Leased Over The Parcel\" for 99 years from 28 December 2015 (expiring 2114) on a Service Apartment Title (HSD 546583, PTD 200287). Medini land sits on IIB freehold under a Private Lease Scheme (PLS), and since January 2025 IIB has offered PLS→freehold conversion. Your lawyer should still confirm the registrable tenure clause in the SPA before you sign.",
     "q1": "Is this connected to Forest City or Country Garden?",
     "a1": "No. Bodaiju's developer is CI Medini Sdn Bhd, 100% owned by Creed Group — a privately-held Japanese real-estate investor with no exposure to the China property crisis. Creed has a delivered, occupied 928-unit precedent (Bodaiju Phnom Penh, completed January 2020). Country Garden Pacificview, Forest City's developer, is an unrelated Chinese listed company.",
     "q2": "What does it really cost a Singaporean to buy, beyond the headline price?",
@@ -276,7 +278,7 @@
     "q6": "Can I rent it out on Airbnb / short-term?",
     "a6": "Short-term rental depends on Bodaiju's building house rules, which are not yet published. Some Medini buildings permit short stays; others don't. Don't base an investment case on Airbnb income until the developer confirms the policy in writing.",
     "q7": "Can a Singaporean get a mortgage for this?",
-    "a7": "Yes. Malaysian banks (CIMB, Maybank, Hong Leong, RHB) and the Malaysian arms of UOB, OCBC and Standard Chartered offer cross-border mortgages, typically at 60–70% loan-to-value for foreign buyers (up to 80% under MM2H). CPF cannot be used for overseas property. Approval depends on your credit profile and the bank's valuation."
+    "a7": "Yes. The developer's approved end-financing panel currently includes Bank Islam, Bank Muamalat and RHB (with Affin Bank, Public Bank and CIMB pending). Foreign buyers are typically financed at 60–70% loan-to-value (up to ~80% under MM2H), and other Malaysian and Singapore-linked banks may also offer cross-border mortgages. CPF cannot be used for overseas property. Approval depends on your credit profile and the bank's valuation."
   },
   "location": {
     "metaTitle": "Location — Medini, Iskandar Puteri: RTS, JS-SEZ & What's Nearby",

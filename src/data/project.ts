@@ -48,16 +48,23 @@ export const project = {
     postcode: "79250",
   },
   landAreaAcres: 3.54,
+  plotRatio: 4.29,
   tenure: {
     label: "99-year Leasehold",
+    leaseCommencement: "28 December 2015",
     leaseExpiry: "27 December 2114",
-    verification: "likely" as Verification,
-    // The single highest-priority FLAG. Medini land is IIB freehold under a
-    // Private Lease Scheme (PLS). IIB has offered PLS→freehold conversion since
-    // Jan 2025 (RM8 psf GFA undeveloped / RM10,000 per completed unit).
+    titleType: "Service Apartment Title",
+    titleParticulars: "HSD 546583, PTD 200287",
+    // Documented in the developer's official sales kit (13 Jan 2026) as
+    // "Leased Over The Parcel (99 years from 28/12/2015)" — a 99-year parcel
+    // lease (the Medini PLS mechanism) on a Service Apartment Title.
+    verification: "verified" as Verification,
     flag:
-      "Exact title structure (registered strata vs PLS sub-lease vs freehold-converted) " +
-      "is NOT in the public record. Confirm CI Medini's written position before publishing.",
+      "The developer's sales kit documents this as a 99-year parcel lease " +
+      '("Leased Over The Parcel", from 28 Dec 2015) on a Service Apartment Title ' +
+      "(HSD 546583, PTD 200287). The exact registrable instrument is set out in the SPA; " +
+      "buyers should still have their lawyer confirm it. IIB has offered PLS→freehold " +
+      "conversion since Jan 2025 (RM8 psf GFA undeveloped / RM10,000 per completed unit).",
   },
   totalUnits: 802,
   towers: [
@@ -65,10 +72,12 @@ export const project = {
     { name: "Tower B", storeys: 31, units: 397, phase: 2 },
   ],
   carParkPodiumLevels: 7,
-  facilitiesLevel: 8,
+  facilitiesLevel: 7, // Level 7 facilities deck + roof sky garden (sales kit, 13 Jan 2026)
+  roofSkyGarden: true,
   unitSizeRangeSqft: [463, 1012] as [number, number],
   bedroomTypes: [1, 2, 3],
   startingPriceRm: 299000,
+  priceRangeRm: [299000, 659000] as [number, number], // Tower A (sales kit); Tower B TBC
   completionYear: 2028,
   towerAConstructionCompletion: "30 November 2027", // per LOA disclosure
   constructionStart: "1 September 2025",
@@ -102,6 +111,7 @@ export const contact = {
 /* -------------------------------------------------------------------------- */
 export const developer = {
   entity: "Creed Property Malaysia Sdn Bhd",
+  registration: "200901023760 (866859-P)",
   formerly: "CI Medini Sdn Bhd",
   parent: "Creed Group (Japan)",
   parentFounded: 1996,
@@ -141,6 +151,17 @@ export const contractor = {
   loaDate: "12 August 2025",
   source: "MGB Berhad Bursa Malaysia announcement, 12 Aug 2025",
   trackRecord: "Listed Malaysian construction group with delivered residential projects in Johor.",
+  verification: "verified" as Verification,
+};
+
+export const financing = {
+  // Developer's approved end-financing panel + panel lawyers (sales kit, 13 Jan 2026).
+  endFinanciers: {
+    approved: ["Bank Islam", "Bank Muamalat", "RHB Bank"],
+    pending: ["Affin Bank", "Public Bank", "CIMB Bank"],
+  },
+  panelLawyers: ["Lim Soh & Goonting", "Kuah, Lim, Chin & Ooi", "Jal & Lim"],
+  foreignerLtvRange: "60–70% (up to ~80% under MM2H)",
   verification: "verified" as Verification,
 };
 
@@ -242,11 +263,12 @@ export const costModel = {
   rentalIncomeTaxNonResident: 0.3,
   firstTimeCitizenExemptionUpToRm: 500_000, // extended to 31 Dec 2027.
   opr: 0.0275, // Bank Negara OPR after 9 Jul 2025 cut.
-  // Maintenance fee is NOT public — do not display a figure as fact.
+  // Developer's estimated maintenance fee, per the official sales kit (13 Jan 2026).
   maintenanceFee: {
-    verification: "unverified" as Verification,
-    typicalRangePsf: [0.3, 0.5] as [number, number],
-    flag: "Bodaiju's maintenance fee is not yet published. Range shown is the Medini norm, not a quote.",
+    verification: "verified" as Verification,
+    estimatedPsf: 0.32,
+    sinkingFundPct: 0.1, // sinking fund = 10% of the maintenance fee
+    flag: "RM0.32/sq ft is the developer's published estimate; the final fee is confirmed at handover.",
   },
 };
 
@@ -462,11 +484,11 @@ export const faqs: Faq[] = [
     category: "tenure",
     q: "What is the land tenure — is it freehold or leasehold?",
     a:
-      "Bodaiju is marketed as a 99-year leasehold service residence. Medini's land historically sits " +
-      "on IIB freehold land under a Private Lease Scheme (PLS), and since January 2025 IIB has offered " +
-      "PLS→freehold conversion. The exact title structure for this project is being confirmed in writing " +
-      "from the developer, and the SPA tenure clause will be shown verbatim. Always verify the title " +
-      "structure with your own lawyer before signing.",
+      "Bodaiju is a 99-year leasehold service residence. The developer's sales kit documents the title " +
+      'as "Leased Over The Parcel" for 99 years from 28 December 2015 (expiring 2114) on a Service ' +
+      "Apartment Title (HSD 546583, PTD 200287). Medini land sits on IIB freehold under a Private Lease " +
+      "Scheme (PLS), and since January 2025 IIB has offered PLS→freehold conversion. Your lawyer should " +
+      "still confirm the registrable tenure clause in the SPA before you sign.",
   },
   {
     category: "trust",
@@ -527,10 +549,11 @@ export const faqs: Faq[] = [
     category: "financing",
     q: "Can a Singaporean get a mortgage for this?",
     a:
-      "Yes. Malaysian banks (CIMB, Maybank, Hong Leong, RHB) and the Malaysian arms of UOB, OCBC and " +
-      "Standard Chartered offer cross-border mortgages, typically at 60–70% loan-to-value for foreign " +
-      "buyers (up to 80% under MM2H). CPF cannot be used for overseas property. Approval depends on your " +
-      "credit profile and the bank's valuation.",
+      "Yes. The developer's approved end-financing panel currently includes Bank Islam, Bank Muamalat " +
+      "and RHB (with Affin Bank, Public Bank and CIMB pending). Foreign buyers are typically financed at " +
+      "60–70% loan-to-value (up to ~80% under MM2H), and other Malaysian and Singapore-linked banks may " +
+      "also offer cross-border mortgages. CPF cannot be used for overseas property. Approval depends on " +
+      "your credit profile and the bank's valuation.",
   },
 ];
 
@@ -538,13 +561,9 @@ export const faqs: Faq[] = [
 /*  UNVERIFIED ITEMS — the honest "Receipts" list (transparency = trust)      */
 /* -------------------------------------------------------------------------- */
 export const unverifiedItems: string[] = [
-  "Exact land tenure / title structure (PLS, registered strata, or freehold-converted)",
-  "Monthly maintenance fee and sinking fund (PSF)",
-  "Total gross floor area (GFA) and project GDV",
-  "Formal SPA vacant-possession date",
-  "Tower B construction start and completion dates",
-  "Verbatim facilities list",
-  "Bumi-quota exemption confirmation at project level",
+  "Project gross development value (GDV)",
+  "Tower B construction start and completion dates (developer states: to be confirmed)",
+  "Bumi-quota release confirmation at project level",
   "Short-term rental / Airbnb house-rules position",
   "Per-floor pricing and current unit availability",
 ];
@@ -597,10 +616,10 @@ export const sellingPoints: { title: string; detail: string }[] = [
 ];
 
 /* -------------------------------------------------------------------------- */
-/*  FACILITIES — VERIFIED ONLY (per master brief §6.1).                        */
-/*  Deliberately EXCLUDES items marked LIKELY/UNVERIFIED: CCTV, sky garden,    */
-/*  "3-tier security", "EV charging ready", "GreenRE". Translation keys use    */
-/*  the stable `key`; grouped for display. All carry a brochure caveat.        */
+/*  FACILITIES — VERIFIED from the developer's sales kit (13 Jan 2026) +       */
+/*  e-brochure. On the Level 7 deck + roof sky garden. Now includes the roof   */
+/*  sky garden, 3-tier security and EV charging (officially confirmed).        */
+/*  Translation keys use the stable `key`; grouped for display.                */
 /* -------------------------------------------------------------------------- */
 export interface FacilityGroup {
   group: "recreation" | "wellness" | "community" | "security";
@@ -625,6 +644,7 @@ export const facilities: FacilityGroup[] = [
       { key: "gym", en: "Gymnasium" },
       { key: "yogaDeck", en: "Viewing / yoga deck" },
       { key: "garden", en: "Landscaped gardens" },
+      { key: "skyGarden", en: "Roof sky garden" },
       { key: "gazebo", en: "Gazebo" },
       { key: "sunkenSeating", en: "Sunken seating" },
     ],
@@ -643,7 +663,8 @@ export const facilities: FacilityGroup[] = [
   {
     group: "security",
     items: [
-      { key: "security24", en: "24-hour security" },
+      { key: "security24", en: "3-tier security service" },
+      { key: "evCharging", en: "EV charging ready" },
       { key: "podium", en: "7-level car-park podium" },
       { key: "balcony", en: "Private balcony to every unit" },
     ],
