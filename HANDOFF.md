@@ -1,7 +1,9 @@
 # BODAIJU WEBSITE — SESSION HANDOFF (read this first)
 
-_Last updated: 4 June 2026. This file is the single source of truth for resuming
-work. Everything important lives in the **git repo**, not in any chat history._
+_Last updated: 4 June 2026 (after official Sales Kit applied). Single source of
+truth for resuming work. Everything important lives in the **git repo**, not chat.
+NOTE: a parallel session pushed commits b6fc9f8 / 5ab81a1 / df3c8e6 after the
+original handoff — always re-clone fresh to get the latest preview-site._
 
 ## GOAL
 World-class bilingual (EN/中文) property sales website for **Bodaiju Residences @
@@ -72,37 +74,60 @@ next-intl v4 · Vercel (deploy on GitHub push).
 - FACT-CHECK.md in repo: every claim VERIFIED/LIKELY/UNVERIFIED, web-checked
   June 2026 (9/10 macro facts TRUE; stale RTS % removed).
 
-## OPEN ITEMS / TODO
-1. **GATING for /zh going live: Chinese copy needs NATIVE-SPEAKER REVIEW.** It's
-   professional AI translation, not human-verified. All zh copy is in
-   `messages/zh.json` (one file).
-2. **Dossier content compiled but NOT yet on pages** (user chose "Facilities only"
-   last round; rest await go-ahead):
-   - `/compare` — competitor table (`competitors` in project.ts, used in 0 files;
-     footer link trimmed because page missing). HIGH VALUE.
-   - `/developer` — Creed timeline, ION completions, Phnom Penh 928-unit case
-     study, "not Country Garden" table. HIGH VALUE (trust).
-   - `/investment` — yields, RPGT exit, MM2H tiers, financing/banks, currency.
-   - Deeper concept (Ma/Omotenashi), launch date 9 May 2026, fuller phasing.
-   Recommended next: Developer + Compare (data already structured).
-3. **BOVAEP / agent identity:** user does NOT want a REN tag. All REN/agency
-   claims stripped; contact is generic "sales team" → Crisp. Dormant fields +
-   re-enable note exist if a licensed REN is added later.
-4. **Assets pending from user/developer:** hero image, renders, floor plans,
-   public/og-image.jpg (referenced, missing). Units page shows "floor plan on
-   request" placeholders.
-5. **Off-site (only user can do):** Google Business Profile, Bing Webmaster +
-   IndexNow, PropertyGuru/iProperty/EdgeProp listings, YouTube walkthroughs.
-   Also: load crisp-ai-knowledge-base.md into Crisp's AI agent.
-6. **GO LIVE** = merge preview-site → main. Needs user approval. Recommend NOT
-   before (1) native zh review + (3) BOVAEP details + ideally (4) real assets.
+## ⚠️ NOTE: Official Sales Kit applied (commit df3c8e6, 4 Jun 2026)
+The owner provided the developer's OFFICIAL Sales Kit + e-brochure (primary
+sources). This resolved most of the old UNVERIFIED list and fixed one error.
+Key changes already live on preview-site — do NOT undo:
+- Facilities deck is **Level 7 + roof sky garden** (was wrongly "Level 8").
+- Tenure: 99-yr parcel lease (28 Dec 2015→2114), Service Apartment Title
+  HSD 546583 / PTD 200287. Now VERIFIED; tenure FAQ rewritten.
+- Maintenance fee **RM0.32/sq ft** (+10% sinking fund) — now VERIFIED.
+- Facilities now DO include roof sky garden, 3-tier security, EV charging
+  (officially confirmed — the earlier "exclude" rule is superseded).
+- Financing FAQ: Bank Islam/Muamalat/RHB approved; Affin/Public/CIMB pending.
+- Extra data: plot ratio 4.29, Tower A RM299k–RM659k, dev reg 200901023760
+  (866859-P), panel lawyers, lease particulars.
+- /legal "awaiting confirmation" trimmed 9→5 items.
 
-## UNVERIFIED FACTS — never assert as fact (shown on /legal "awaiting confirmation")
-tenure structure (PLS/strata/freehold), maintenance fee, sinking fund, GFA/GDV,
-SPA VP date, Tower B dates, verbatim facilities list, project-level Bumi exemption,
-Airbnb policy, per-floor pricing. Per-unit prices + APDL numbers are LIKELY (caveated).
-Facilities page shows VERIFIED-only (19 brochure items); excludes sky garden,
-CCTV, 3-tier security, EV charging, GreenRE.
+## ❌ MISSING CONTENT — still not on the site (audited 4 Jun 2026, post-Sales-Kit)
+These dossier sections have data in project.ts but NO page renders them:
+1. **`/developer`** (HIGH VALUE) — Creed timeline (Sunsuria→CI Medini→Creed),
+   ION1–4 completions, Phnom Penh 928-unit case study, and the **"≠ Country
+   Garden / Forest City" comparison table**. Strongest trust content. Footer
+   link is currently absent because the page doesn't exist.
+2. **`/compare`** (HIGH VALUE) — Medini competitor table (Afiniti, Grand Medini,
+   The M, D'Pristine, Sunway Citrine + PSF). `competitors` array exists in
+   project.ts but is used in 0 files. Footer link trimmed for the same reason.
+3. **`/investment`** (HIGH VALUE) — rental yields (5.2–6.35%), RPGT exit math,
+   rental income tax, MM2H tiers, financing/banks/CPF, currency, Johor market
+   momentum stats (300k cross-border commuters, +20.4% YoY). All in project.ts
+   (`costModel`, `macro`) but not surfaced as a page.
+Partial gaps (page exists, content not added):
+4. Japanese design philosophy — **Ma (間) / Omotenashi** — not on any page.
+5. **Medini township context** — 2,230 acres, Khazanah + Mitsui backing,
+   USD 20bn GDV — not on /location.
+6. Official launch date **9 May 2026 + IIB ribbon-cutting**; fuller two-tower
+   phasing detail (A 32st/405u, B 31st/397u, 7-level podium) — not surfaced.
+Recommended build order: **/developer → /compare → /investment** (data ready).
+
+## OTHER OPEN ITEMS / TODO
+A. **GATING for /zh going live: Chinese copy needs NATIVE-SPEAKER REVIEW.**
+   Professional AI translation, not human-verified. All zh copy in messages/zh.json.
+B. **BOVAEP / agent identity:** user does NOT want a REN tag. REN/agency claims
+   stripped; contact = generic "sales team" → Crisp. Dormant fields exist to
+   re-enable a compliant notice if a licensed REN is added.
+C. **Assets pending:** hero image, renders, floor plans, public/og-image.jpg
+   (referenced, missing). Units page shows "floor plan on request" placeholders.
+D. **Off-site (only user can do):** Google Business Profile, Bing Webmaster +
+   IndexNow, PropertyGuru/iProperty/EdgeProp listings, YouTube walkthroughs;
+   load crisp-ai-knowledge-base.md into Crisp's AI agent.
+E. **GO LIVE** = merge preview-site → main (needs user approval). Recommend NOT
+   before (A) native zh review + (B) BOVAEP decision + ideally (C) real assets.
+
+## UNVERIFIED FACTS — never assert as fact (now only 5, shown on /legal)
+GDV; Tower B start/completion dates (developer: TBC); project-level Bumi-quota
+release; Airbnb/short-term-rental policy; per-floor pricing & current availability.
+(Tenure, maintenance fee, facilities, financing panel are now VERIFIED via Sales Kit.)
 
 ## SOURCE DOCS (on user's machine; access may vary)
 /Users/salmon/Documents/Bodaiju_Master_Content_Brief.md (consolidated 5-dossier brief)
